@@ -12,5 +12,13 @@ return [
             'assignmentFile' => '@backend/rbac/assignments.php', //Default path to assignments.php | NEW CONFIGURATIONS
             'ruleFile' => '@backend/rbac/rules.php', //Default path to rules.php | NEW CONFIGURATIONS
         ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'rules' => [
+                'template' => 'template/index',
+            ],
+        ],
     ],
 ];

@@ -7,6 +7,9 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Request;
 
+/**
+ * Template controller
+ */
 class TemplateController extends Controller
 {
     public $defaultAction = 'index';
@@ -23,7 +26,7 @@ class TemplateController extends Controller
                     [
                         'actions' => ['index'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['?'],
                     ],
                 ],
             ],
@@ -40,13 +43,16 @@ class TemplateController extends Controller
     {
         $request = Yii::$app->getRequest();
         $template = $request->get('url');
+        $templatePath = Yii::getAlias('@webroot') . '/angular/tpl/' . $template;
+
         if ($request instanceof Request && $request->enableCsrfValidation) {
-            $element = '<input id="_csrf" type="hidden" value="' . $request->getCsrfToken() . '">';
+            $element = '<input ng-model="_csrf" type="hidden" value="' . $request->getCsrfToken() .
+                '">';
         } else {
             return '';
         }
 
+        require $templatePath;
         echo $element;
-        require($template);
     }
 }
