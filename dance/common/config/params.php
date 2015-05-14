@@ -2,5 +2,6 @@
 return [
     'adminEmail' => 'admin@example.com',
     'supportEmail' => 'support@example.com',
-    'user.passwordResetTokenExpire' => 3600,
+    'user.passwordResetTokenExpire' => 7200,
+    'user.accessTokenExpire' => 86400,
 ];

@@ -16,11 +16,11 @@ class m150513_072609_create_user_t extends Migration
         $this->createTable('{{%user}}', [
             'id' => Schema::TYPE_PK,
             // This field is for invoice number which append behind timestamp which has been verified unique through all users. 
-            'uid' => Schema::TYPE_INTEGER . '(6) NOT NULL', 
+            'uid' => Schema::TYPE_STRING . '(6) NOT NULL',
             'username' => Schema::TYPE_STRING . ' NOT NULL',
             // This field is password protected
-            'identity_card_number' => Schema::TYPE_STRING . ' NOT NULL',
-            'access_token' => Schema::TYPE_STRING . '(32) NOT NULL',
+            'identity_card_number' => Schema::TYPE_STRING,
+            'access_token' => Schema::TYPE_STRING,
             'auth_key' => Schema::TYPE_STRING . '(32) NOT NULL',
             'password_hash' => Schema::TYPE_STRING . ' NOT NULL',
             'password_reset_token' => Schema::TYPE_STRING,

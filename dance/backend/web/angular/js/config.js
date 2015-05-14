@@ -5,16 +5,17 @@ angular.module('app')
   .config(
     [        '$controllerProvider', '$compileProvider', '$filterProvider', '$locationProvider', '$provide',
     function ($controllerProvider,   $compileProvider,   $filterProvider,   $locationProvider,   $provide) {
-        
-        // lazy controller, directive and service
-        app.controller = $controllerProvider.register;
-        app.directive  = $compileProvider.directive;
-        app.filter     = $filterProvider.register;
-        app.factory    = $provide.factory;
-        app.service    = $provide.service;
-        app.constant   = $provide.constant;
-        app.value      = $provide.value;
 
+        // lazy controller, directive and service
+        app.controller   = $controllerProvider.register;
+        app.directive    = $compileProvider.directive;
+        app.filter       = $filterProvider.register;
+        app.factory      = $provide.factory;
+        app.service      = $provide.service;
+        app.constant     = $provide.constant;
+        app.value        = $provide.value;
+
+        // enable html5mode which vanish '#' in the url
         $locationProvider.html5Mode({
           enabled: true,
           requireBase: true

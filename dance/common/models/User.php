@@ -68,7 +68,31 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+        if (!static::isAccessTokenValid($token)) {
+            return null;
+        }
+
+        return static::findOne([
+            'access_token' => $token,
+            'status' => self::STATUS_ACTIVE,
+        ]);
+    }
+
+    /**
+     * Finds out if access token is valid
+     *
+     * @param string $token access token
+     * @return bool
+     */
+    public static function isAccessTokenValid($token)
+    {
+        if (empty($token)) {
+            return false;
+        }
+        $expire = Yii::$app->params['user.accessTokenExpire'];
+        $parts = explode('_', $token);
+        $timestamp = (int) end($parts);
+        return $timestamp + $expire >= time();
     }
 
     /**
@@ -80,6 +104,18 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findByUsername($username)
     {
         return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+    }
+
+
+    /**
+     * Finds user by email
+     *
+     * @param string $email
+     * @return static|null
+     */
+    public static function findByEmail($email)
+    {
+        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -160,6 +196,16 @@ class User extends ActiveRecord implements IdentityInterface
     public function setPassword($password)
     {
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
+    }
+
+    public function setAccessToken()
+    {
+        $this->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
+    }
+
+    public function removeAccessToken()
+    {
+        $this->
     }
 
     /**

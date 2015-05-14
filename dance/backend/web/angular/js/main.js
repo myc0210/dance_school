@@ -54,8 +54,14 @@ angular.module('app')
       }, true);
 
       // angular translate
-      $scope.lang = { isopen: false };
-      $scope.langs = {en:'English', de_DE:'German', it_IT:'Italian'};
+      $scope.lang = {
+          isopen: false
+      };
+
+      $scope.langs = {
+          en:'English'
+      };
+
       $scope.selectLang = "English";
 
       function isSmartDevice( $window )
