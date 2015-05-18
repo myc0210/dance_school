@@ -7,7 +7,7 @@
       <div class="list-group list-group-sm">
         <div class="list-group-item">
           <input type="text" placeholder="Username or email" class="form-control no-border"
-                 ng-model="user.email" required>
+                 ng-model="user.username" required>
         </div>
         <div class="list-group-item">
            <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
@@ -20,4 +20,4 @@
   <div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
     {% include 'blocks/page_footer.html' %}
   </div>
-</div>
+<!-- </div> // need to append csrf-token -->

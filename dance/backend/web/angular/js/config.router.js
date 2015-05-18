@@ -406,7 +406,7 @@ angular.module('app')
               })
               .state('access.signin', {
                   url: '/signin',
-                  templateUrl: 'tpl/page_signin.html',
+                  templateUrl: 'template/?url=page_signin.html',
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad ){

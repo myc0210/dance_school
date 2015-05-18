@@ -3,8 +3,8 @@
 var app =  
 angular.module('app')
   .config(
-    [        '$controllerProvider', '$compileProvider', '$filterProvider', '$locationProvider', '$provide',
-    function ($controllerProvider,   $compileProvider,   $filterProvider,   $locationProvider,   $provide) {
+    [        '$controllerProvider', '$compileProvider', '$filterProvider', '$httpProvider', '$locationProvider', '$provide',
+    function ($controllerProvider,   $compileProvider,   $filterProvider,   $httpProvider,   $locationProvider,   $provide) {
 
         // lazy controller, directive and service
         app.controller   = $controllerProvider.register;
@@ -15,13 +15,24 @@ angular.module('app')
         app.constant     = $provide.constant;
         app.value        = $provide.value;
 
+        $httpProvider.interceptors.push(function ($q) {
+            return {
+                request: function (request) {
+                    request.url = 'http://localhost/school/dance/backend/web/' + request.url;
+                    return request || $q.when(request);
+                }
+            }
+        });
+
         // enable html5mode which vanish '#' in the url
         $locationProvider.html5Mode({
           enabled: true,
           requireBase: true
         });
     }
-  ]);
+  ]).run(
+
+    );
   // .config(['$translateProvider', function($translateProvider){
   //   // Register a loader for the static files
   //   // So, the module will search missing translation tables under the specified urls.
