@@ -20,6 +20,15 @@ angular.module('app')
               .otherwise('/access/signin');
               
           $stateProvider
+              .state('admin', {
+                  abstract: true,
+                  url: '/admin',
+                  templateUrl: 'tpl/admin/app.html'
+              })
+              .state('admin.dashboard', {
+                  url: '/dashboard',
+                  templateUrl: 'tpl/admin/app_dashboard.html'
+              })
               .state('app', {
                   abstract: true,
                   url: '/app',
@@ -27,7 +36,7 @@ angular.module('app')
               })
               .state('app.dashboard', {
                   url: '/dashboard',
-                  templateUrl: 'tpl/app_dashboard.html',
+                  templateUrl: 'tpl/app_dashboard.html'
               })
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',
@@ -426,7 +435,7 @@ angular.module('app')
               })
               .state('access.forgotpwd', {
                   url: '/forgotpwd',
-                  templateUrl: 'tpl/page_forgotpwd.html'
+                  templateUrl: 'template/?url=page_forgotpwd.html'
               })
               .state('access.404', {
                   url: '/404',

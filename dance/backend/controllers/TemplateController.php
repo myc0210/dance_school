@@ -43,7 +43,7 @@ class TemplateController extends Controller
     {
         $request = Yii::$app->getRequest();
         $template = $request->get('url');
-        $templatePath = Yii::getAlias('@webroot') . '/angular/tpl/' . $template;
+        $templatePath = Yii::getAlias('@webroot') . '/tpl/' . $template;
 
         if ($request instanceof Request && $request->enableCsrfValidation) {
             $element = '<csrf-token parent-scope="csrf" value="' .

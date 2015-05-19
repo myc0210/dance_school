@@ -16,6 +16,7 @@ return [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => false,
+            'enableSession' => false,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -35,6 +36,8 @@ return [
                 'text/json' => 'yii\web\JsonParser',
             ],
         ],
+        'response' => [
+        ]
     ],
     'params' => $params,
 ];

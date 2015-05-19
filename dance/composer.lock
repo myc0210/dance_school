@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9a9f9f0899b55ec76c0955364810023a",
+    "hash": "005de221be72bffbfb2b491b96aaa0c9",
     "packages": [
         {
             "name": "bower-asset/angular",
@@ -314,6 +314,33 @@
             ]
         },
         {
+            "name": "bower-asset/css-spinners",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jlong/css-spinners.git",
+                "reference": "456932f5eb834e49819c6fdde296f48178ec2ad3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jlong/css-spinners/zipball/456932f5eb834e49819c6fdde296f48178ec2ad3",
+                "reference": "456932f5eb834e49819c6fdde296f48178ec2ad3",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "./css/spinners.css",
+                    "./css/spinner/*.css",
+                    "./sass/spinners.sass",
+                    "./sass/*.scss"
+                ],
+                "bower-asset-ignore": [
+                    "**/.*"
+                ]
+            }
+        },
+        {
             "name": "bower-asset/font-awesome",
             "version": "v4.3.0",
             "source": {
@@ -448,16 +475,16 @@
         },
         {
             "name": "bower-asset/ngstorage",
-            "version": "0.3.3",
+            "version": "0.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gsklee/ngStorage.git",
-                "reference": "32426550d808615f1216a94f0509509139259c10"
+                "reference": "9c9aa663bc432eaf4be114c057e166e3510d193e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gsklee/ngStorage/zipball/32426550d808615f1216a94f0509509139259c10",
-                "reference": "32426550d808615f1216a94f0509509139259c10",
+                "url": "https://api.github.com/repos/gsklee/ngStorage/zipball/9c9aa663bc432eaf4be114c057e166e3510d193e",
+                "reference": "9c9aa663bc432eaf4be114c057e166e3510d193e",
                 "shasum": ""
             },
             "require": {

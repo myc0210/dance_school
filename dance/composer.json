@@ -34,7 +34,8 @@
         "bower-asset/bootstrap": "~3.3.4",
         "bower-asset/font-awesome": "~4.3.0",
         "bower-asset/simple-line-icons": "~1.0.0",
-        "bower-asset/ocLazyLoad": "*"
+        "bower-asset/ocLazyLoad": "*",
+        "bower-asset/css-spinners": "2.0.2"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

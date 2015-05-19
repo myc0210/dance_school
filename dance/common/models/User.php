@@ -11,11 +11,14 @@ use yii\web\IdentityInterface;
  * User model
  *
  * @property integer $id
+ * @property integer $uid
  * @property string $username
+ * @property string $identity_card_number
+ * @property string $access_token
+ * @property string $auth_key
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
- * @property string $auth_key
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
@@ -198,14 +201,14 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }
 
-    public function setAccessToken()
+    public function generateAccessToken()
     {
-        $this->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
+        $this->access_token = Yii::$app->security->generateRandomString() . '_' . time();
     }
 
     public function removeAccessToken()
     {
-        $this->
+        $this->access_token = null;
     }
 
     /**

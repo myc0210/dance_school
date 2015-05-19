@@ -4,7 +4,7 @@ namespace backend\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use common\models\LoginForm;
+use common\models\UserLogin;
 use yii\filters\VerbFilter;
 use yii\web\Response;
 use yii\filters\auth\HttpBearerAuth;
@@ -68,9 +68,23 @@ class UserController extends Controller
     public function actionLogin()
     {
         $response = Yii::$app->response;
-        $response->statusCode = 200;
         $response->format = Response::FORMAT_JSON;
-        $response->data = ['status' => 'success'];
+        $authManager = Yii::$app->authManager;
+
+        $model = new UserLogin();
+        if ($model->load(Yii::$app->request->post(), '') && $model->login()) {
+            $response->statusCode = 200;
+            $response->data = [
+                'status' => 'success',
+                'accessToken' => $model->getAccessToken(),
+                'user' => [
+                    'username' => $model->getUser()->username,
+                    'role' => $model->getRole()
+                ]
+            ];
+        } else {
+            $response->statusCode = 403;
+        }
     }
 
     public function actionLogout()
