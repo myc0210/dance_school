@@ -29,6 +29,10 @@ angular.module('app')
                   url: '/dashboard',
                   templateUrl: 'tpl/admin/app_dashboard.html'
               })
+              .state('admin.product', {
+                  url: '/product',
+                  templateUrl: 'tpl/admin/product/list.html'
+              })
               .state('app', {
                   abstract: true,
                   url: '/app',

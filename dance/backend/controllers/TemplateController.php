@@ -46,7 +46,7 @@ class TemplateController extends Controller
         $templatePath = Yii::getAlias('@webroot') . '/tpl/' . $template;
 
         if ($request instanceof Request && $request->enableCsrfValidation) {
-            $element = '<csrf-token parent-scope="csrf" value="' .
+            $element = '<myc-csrf-token parent-scope="csrf" value="' .
                 $request->getCsrfToken() .
                 '">';
         } else {

@@ -5,10 +5,14 @@
 app.controller('SigninFormController',
     [        '$scope', '$http', '$state', '$localStorage',
     function ($scope,   $http,   $state,   $localStorage) {
+
         $scope.user = {};
         $scope.csrf = {value: ''};
         $scope.authError = null;
+        $scope.enable = true;
+
         $scope.login = function () {
+            $scope.enable = true;
             $scope.authError = null;
             console.log($scope);
             // Try to login

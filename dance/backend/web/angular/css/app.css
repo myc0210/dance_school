@@ -875,6 +875,10 @@ body {
   line-height: 60px;
 }
 
+.navbar-header {
+    z-index: 2;
+}
+
 .navbar-header > button {
   padding: 10px 17px;
   font-size: 16px;
@@ -907,8 +911,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .app-aside,
-  .navbar-header {
+  .app-aside {
     width: 200px;
   }
   .navbar-collapse,
@@ -1082,12 +1085,6 @@ body {
   .navbar-form .form-group {
     margin-bottom: 0;
   }
-}
-
-html {
-  background: url('../img/bg.jpg');
-  background-attachment: fixed;
-  background-size: cover;
 }
 
 .app.container {

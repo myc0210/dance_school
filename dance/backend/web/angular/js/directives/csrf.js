@@ -1,5 +1,5 @@
 angular.module('app')
-    .directive('csrfToken',
+    .directive('mycCsrfToken',
         [       '$timeout',
     function (   $timeout) {
         return {
@@ -7,9 +7,9 @@ angular.module('app')
             scope: {
                 csrf: '=parentScope'
             },
-            link: function ($scope, $element, $attrs) {
+            link: function (scope, element, attrs) {
                 $timeout( function() {
-                    $scope.csrf.value = $attrs.value;
+                    scope.csrf.value = attrs.value;
                 }, 100);
             }
         };

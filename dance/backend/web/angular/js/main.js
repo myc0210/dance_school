@@ -12,7 +12,7 @@ angular.module('app')
 
       // config
       $scope.app = {
-        name: 'Angulr',
+        name: 'School Management System',
         version: '2.0.1',
         // for chart colors
         color: {
@@ -34,7 +34,7 @@ angular.module('app')
           asideFixed: false,
           asideFolded: false,
           asideDock: false,
-          container: false
+          container: true
         }
       }
 
