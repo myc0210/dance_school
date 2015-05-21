@@ -31,8 +31,8 @@ angular.module('app')
       wysiwyg:        [   '../bower_components/bootstrap-wysiwyg/bootstrap-wysiwyg.js',
                           '../bower_components/bootstrap-wysiwyg/external/jquery.hotkeys.js'],
       dataTable:      [   '../../../vendor/bower/datatables/media/js/jquery.dataTables.min.js',
-                          '../../../vendor/bower/plugins/integration/bootstrap/3/dataTables.bootstrap.js',
-                          '../../../vendor/bower/plugins/integration/bootstrap/3/dataTables.bootstrap.css'],
+                          '../../../vendor/bower/datatables/plugins/integration/bootstrap/3/dataTables.bootstrap.js',
+                          '../../../vendor/bower/datatables/plugins/integration/bootstrap/3/dataTables.bootstrap.css'],
       vectorMap:      [   '../bower_components/bower-jvectormap/jquery-jvectormap-1.2.2.min.js', 
                           '../bower_components/bower-jvectormap/jquery-jvectormap-world-mill-en.js',
                           '../bower_components/bower-jvectormap/jquery-jvectormap-us-aea-en.js',
@@ -58,6 +58,21 @@ angular.module('app')
           debug:  true,
           events: true,
           modules: [
+              {
+                  name: 'ui.tree',
+                  files: [
+                      '../../../vendor/bower/angular-ui-tree/dist/angular-ui-tree.js',
+                      '../../../vendor/bower/angular-ui-tree/dist/angular-ui-tree.min.css'
+                  ]
+              },
+              {
+                  name: 'perfect-scrollbar',
+                  files: [
+                      '../../../vendor/bower/perfect-scrollbar/min/perfect-scrollbar.min.css',
+                      '../../../vendor/bower/perfect-scrollbar/min/perfect-scrollbar.min.js',
+                      '../../../vendor/bower/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js',
+                  ]
+              },
               {
                   name: 'ngGrid',
                   files: [

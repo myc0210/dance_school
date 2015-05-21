@@ -30,8 +30,44 @@ angular.module('app')
                   templateUrl: 'tpl/admin/app_dashboard.html'
               })
               .state('admin.product', {
+                  abstract: true,
                   url: '/product',
+                  templateUrl: 'tpl/admin/product/general.html'
+              })
+              .state('admin.product.list', {
+                  url: '/list',
                   templateUrl: 'tpl/admin/product/list.html'
+              })
+              .state('admin.product.add', {
+                  url: '/add',
+                  templateUrl: 'csrftemplate/?url=admin/product/add.html',
+                  //resolve: {
+                  //    deps: ['$ocLazyLoad',
+                  //        function( $ocLazyLoad ){
+                  //            return $ocLazyLoad.load('ui.tree');
+                  //            //.then(
+                  //            //    function() {
+                  //            //        return $ocLazyLoad.load('perfect-scrollbar');
+                  //            //    }
+                  //            //);
+                  //        }]
+                  //}
+              })
+              .state('admin.product.category', {
+                  url: '/category',
+                  templateUrl: 'csrftemplate/?url=admin/product/category.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function ($ocLazyLoad) {
+                              return $ocLazyLoad.load('ui.tree');
+                              //.then(
+                              //  function () {
+                              //      return $ocLazyLoad.load('js/controllers/admin/product.js');
+                              //  }
+                              //);
+                          }
+                      ]
+                  }
               })
               .state('app', {
                   abstract: true,

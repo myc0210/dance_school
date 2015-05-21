@@ -10,7 +10,7 @@ use yii\web\Request;
 /**
  * Template controller
  */
-class TemplateController extends Controller
+class CsrftemplateController extends Controller
 {
     public $defaultAction = 'index';
 

@@ -18,7 +18,19 @@ angular.module('app')
         $httpProvider.interceptors.push(function ($q) {
             return {
                 request: function (request) {
-                    request.url = 'http://localhost/school/dance/backend/web/' + request.url;
+                    var filter = ['template'],
+                        untouch = false;
+
+                    filter.forEach(function (elem, index, self) {
+                        if(request.url.indexOf(elem) === 0) {
+                            untouch = true;
+                        }
+                    });
+
+                    if (untouch == false) {
+                        request.url = 'http://localhost/school/dance/backend/web/' + request.url;
+                    }
+
                     return request || $q.when(request);
                 }
             }
@@ -30,19 +42,5 @@ angular.module('app')
           requireBase: true
         });
     }
-  ]).run(
-
-    );
-  // .config(['$translateProvider', function($translateProvider){
-  //   // Register a loader for the static files
-  //   // So, the module will search missing translation tables under the specified urls.
-  //   // Those urls are [prefix][langKey][suffix].
-  //   $translateProvider.useStaticFilesLoader({
-  //     prefix: 'l10n/',
-  //     suffix: '.js'
-  //   });
-  //   // Tell the module what language to use by default
-  //   $translateProvider.preferredLanguage('en');
-  //   // Tell the module to store the language in the local storage
-  //   $translateProvider.useLocalStorage();
-  // }]);
+  ])
+  .run();

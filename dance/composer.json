@@ -36,7 +36,9 @@
         "bower-asset/simple-line-icons": "~1.0.0",
         "bower-asset/ocLazyLoad": "*",
         "bower-asset/css-spinners": "2.0.2",
-        "bower-asset/datatables": "1.10.7"
+        "bower-asset/datatables": "1.10.7",
+        "bower-asset/angular-ui-tree": "^2.4",
+        "bower-asset/angular-perfect-scrollbar": "^0.0.4"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

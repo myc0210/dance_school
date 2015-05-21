@@ -13,6 +13,7 @@ body {
   line-height: 1.42857143;
   color: #58666e;
   background-color: transparent;
+  overflow: scroll;
 }
 
 *:focus {

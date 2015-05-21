@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fd17aac64fba336a29eb69bb189fbda1",
+    "hash": "59a0e84e03f6e4d6427135d22f380a68",
     "packages": [
         {
             "name": "bower-asset/angular",
@@ -105,6 +105,45 @@
                 "bower-asset-main": "./angular-cookies.js",
                 "bower-asset-ignore": []
             }
+        },
+        {
+            "name": "bower-asset/angular-perfect-scrollbar",
+            "version": "v0.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itsdrewmiller/angular-perfect-scrollbar.git",
+                "reference": "65b3722a2d5a9b2230f07d6822d7c1a6181a15fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itsdrewmiller/angular-perfect-scrollbar/zipball/65b3722a2d5a9b2230f07d6822d7c1a6181a15fe",
+                "reference": "65b3722a2d5a9b2230f07d6822d7c1a6181a15fe",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/angular": "*",
+                "bower-asset/perfect-scrollbar": "~0.5.1"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "src/angular-perfect-scrollbar.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "test",
+                    "tests"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A directive to allow the use of perfect scrollbar in angular",
+            "keywords": [
+                "angular",
+                "perfect",
+                "scrollbar"
+            ]
         },
         {
             "name": "bower-asset/angular-resource",
@@ -211,6 +250,64 @@
                     "files.js"
                 ]
             }
+        },
+        {
+            "name": "bower-asset/angular-ui-tree",
+            "version": "v2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/angular-ui-tree/angular-ui-tree.git",
+                "reference": "1066ac2949e409b21474d43e96fc96f38e865e58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/angular-ui-tree/angular-ui-tree/zipball/1066ac2949e409b21474d43e96fc96f38e865e58",
+                "reference": "1066ac2949e409b21474d43e96fc96f38e865e58",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/angular": ">=1.2.0"
+            },
+            "require-dev": {
+                "bower-asset/angular-mocks": ">=1.2.0",
+                "bower-asset/angular-route": ">=1.2.0",
+                "bower-asset/angularfire": "~0.8.2",
+                "bower-asset/bootstrap-css": "~3.2.0",
+                "bower-asset/jasmine-jquery": "~1.7.0",
+                "bower-asset/jquery": "~2.1.1"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/angular-ui-tree.js",
+                    "dist/angular-ui-tree.min.js",
+                    "dist/angular-ui-tree.min.css"
+                ],
+                "bower-asset-ignore": [
+                    "examples",
+                    "demo",
+                    "build",
+                    "guide",
+                    "node_modules",
+                    "source",
+                    "tasks",
+                    "tests",
+                    "gulpfile.js",
+                    "karma.conf.js",
+                    "package.json"
+                ]
+            },
+            "description": "Tree directive for AngularJS",
+            "keywords": [
+                "NestedSortable",
+                "angular",
+                "drag",
+                "drop",
+                "nested",
+                "node",
+                "sortable",
+                "tree"
+            ]
         },
         {
             "name": "bower-asset/angular-ui-utils",
@@ -615,6 +712,40 @@
                 "load on demand",
                 "module"
             ]
+        },
+        {
+            "name": "bower-asset/perfect-scrollbar",
+            "version": "0.5.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/noraesae/perfect-scrollbar-bower.git",
+                "reference": "f6af3e071110bc09294fb950959051a079897582"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/noraesae/perfect-scrollbar-bower/zipball/f6af3e071110bc09294fb950959051a079897582",
+                "reference": "f6af3e071110bc09294fb950959051a079897582",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.10"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "src/perfect-scrollbar.css",
+                    "src/perfect-scrollbar.js"
+                ],
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Tiny but perfect jQuery scrollbar plugin"
         },
         {
             "name": "bower-asset/punycode",
