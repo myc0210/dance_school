@@ -34,9 +34,10 @@ app.controller('ProductGeneralController',
     }]
 )
 .controller('ProductCategoryController',
-    [        '$scope', '$http',
-    function ($scope,   $http) {
-        $scope.page.title = 'Add New Product -> Select Category';
+    [        '$scope', '$http', '$localStorage',
+    function ($scope,   $http,   $localStorage) {
+        $scope.page.title = 'Product Category List';
+        $scope.csrf = {value: ''};
         $scope.categories = [
             {
                 name: '1',
@@ -61,16 +62,23 @@ app.controller('ProductGeneralController',
                 ]
             },
         ];
-        $scope.csrf = {value: ''};
 
-        $scope.remove = function(scope) {
-            scope.remove();
+        $scope.newCategory = function (scope) {
+            $scope.categories.push({name: '', subCategories: []});
         };
 
-        $scope.toggle = function(scope) {
-            console.log('toggle');
-            console.log(scope);
-            scope.toggle();
+        $scope.edit = function (scope) {
+            var node = scope.$modelValue;
+            node.edit = true;
+        };
+
+        $scope.editFinish = function (scope) {
+            var node = scope.$modelValue;
+            node.edit = false;
+        };
+
+        $scope.save = function () {
+
         };
     }]
 );

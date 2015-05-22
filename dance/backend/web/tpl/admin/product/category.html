@@ -20,6 +20,16 @@
         background: #f4f6f7;
         border-color: #dce2e8;
     }
+
+    /*Category CSS*/
+
+    .category-ctrl {
+        margin-bottom: 10px;
+    }
+
+    .btn.margin-left-5px {
+        margin-left: 5px;
+    }
 </style>
 <script type="text/ng-template" id="template/tree_nodes.html">
     <div ui-tree-handle class="tree-node tree-node-content">
@@ -35,9 +45,14 @@
         <button type="button" class="btn btn-danger btn-default"
                 ng-if="!(category.subCategories && category.subCategories.length > 0)"
                 data-nodrag
-                disabled><span
-                class="glyphicon icon-ban"></span></button>
-        {{category.name}}
+                disabled>
+                <span class="glyphicon icon-ban"></span>
+        </button>
+        <input type="text" value="{{category.name}}" ng-disabled="!category.edit"
+        placeholder="Category Name">
+        <button ng-if="category.edit" class="btn btn-sm btn-success margin-left-5px"
+        ng-click="editFinish(this)">OK
+        </button>
         <!--<div class="btn-toolbar" role="toolbar">-->
             <div class="btn-group pull-right" role="group">
                 <button type="button" class="btn btn-default btn-danger" data-nodrag ng-click="remove(this)"><span
@@ -63,7 +78,13 @@
 </script>
 <div class="wrapper-md" ng-controller="ProductCategoryController">
     <!--<div class="panel panel-default">-->
-        <div ui-tree data-max-depth="2">
+        <div ui-tree max-depth="2" empty-place-holder-enabled="false">
+            <div class="category-ctrl">
+                <button class="btn btn-success" ng-click="save()">Save</button>
+                <button class="btn btn-info" ng-click="newCategory()">New Main Category</button>
+                <button class="btn btn-info" ng-click="this.expandAll()">Expand All</button>
+                <button class="btn btn-info" ng-click="this.collapseAll()">Collapse All</button>
+            </div>
             <ol ui-tree-nodes="" ng-model="categories">
                 <li ng-repeat="category in categories" ui-tree-node
                 ng-include="'template/tree_nodes.html'">
