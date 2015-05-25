@@ -20,5 +20,12 @@ return [
                 'template' => 'template/index',
             ],
         ],
+        'flysystem' => [
+            'class' => 'creocoder\flysystem\LocalFilesystem',
+            'path' => '@webroot/images',
+        ],
+    ],
+    'aliases' => [
+        '@upload' => 'images',
     ],
 ];

@@ -1,0 +1,92 @@
+<style>
+    .vt-align-md {
+        vertical-align: middle !important;
+    }
+
+    .box {
+        height: 200px;
+        background-color: green;
+        border: 2px solid blueviolet;
+    }
+</style>
+<script type="text/ng-template" id="template/media_upload.html">
+    <div class="b-a b-2x b-dashed wrapper-lg bg-white text-center m-b"
+         ngf-select
+         ng-model="files"
+         ng-model-reject="rejFiles"
+         ngf-change="upload($files)"
+         ngf-drop
+         ngf-multiple="true"
+         ngf-accept="'image/*'"
+         accept="image/*"
+         ngf-drop-over-class="b-info">
+        Drop files here or select files
+    </div>
+    <table class="table bg-white-only b-a" ng-show="files.length > 0">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Progress</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="file in files">
+            <td>
+                <img ng-show="file.type.indexOf('image') > -1" ngf-src="file" class="w-xs">
+                <strong>{{ file.name }}</strong>
+            </td>
+            <td class="vt-align-md">{{ file.size/1024/1024|number:2 }} MB</td>
+            <td class="vt-align-md">
+                <div class="progress progress-sm m-b-none m-t-xs">
+                    <div class="progress-bar bg-info" role="progressbar" ng-style="{ 'width': file.progress + '%' }"></div>
+                </div>
+            </td>
+            <td class="vt-align-md">
+                <span ng-show="file.success" class="text-success"><i class="glyphicon glyphicon-ok"></i></span>
+                <span ng-show="file.fail" class="text-success"><i class="glyphicon glyphicon-remove"></i></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</script>
+
+<script type="text/ng-template" id="template/media_list.html">
+    <div class="row">
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3" ng-repeat="image in images">
+            <div class="checkbox">
+                <label class="i-checks">
+                    <input type="checkbox" value="">
+                    <i></i>
+                </label>
+            </div>
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" ng-src="image.src" alt="">
+            </a>
+        </div>
+    </div>
+</script>
+
+<div class="bg-light lter b-b wrapper-md" ng-controller="MediaController">
+    <h1 class="m-n font-thin h3">media manager</h1>
+    <div class="wrapper-md">
+        <tabset>
+            <tab heading="All Images">
+                <div ng-include="'template/media_list.html'">
+
+                </div>
+            </tab>
+            <tab heading="Upload Images">
+                <div ng-include="'template/media_upload.html'">
+
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</div>

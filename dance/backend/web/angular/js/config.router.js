@@ -27,7 +27,18 @@ angular.module('app')
               })
               .state('admin.dashboard', {
                   url: '/dashboard',
-                  templateUrl: 'tpl/admin/app_dashboard.html'
+                  templateUrl: 'tpl/admin/dashboard.html'
+              })
+              .state('admin.media-manager', {
+                  url: '/media-manager',
+                  templateUrl: 'tpl/admin/media_manager.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function ($ocLazyLoad) {
+                              return $ocLazyLoad.load('ng-file-upload');
+                          }
+                      ]
+                  }
               })
               .state('admin.product', {
                   abstract: true,
@@ -76,7 +87,7 @@ angular.module('app')
               })
               .state('app.dashboard', {
                   url: '/dashboard',
-                  templateUrl: 'tpl/app_dashboard.html'
+                  templateUrl: 'tpl/dashboard.html'
               })
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',

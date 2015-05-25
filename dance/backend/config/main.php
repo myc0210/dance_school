@@ -40,4 +40,7 @@ return [
         ]
     ],
     'params' => $params,
+    'aliases' => [
+        '@upload' => 'images',
+    ],
 ];

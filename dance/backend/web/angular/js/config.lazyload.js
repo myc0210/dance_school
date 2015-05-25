@@ -189,6 +189,14 @@ angular.module('app')
                   files: [
                       '../bower_components/angular-smart-table/dist/smart-table.min.js'
                   ]
+              },
+              {
+                  name: 'ng-file-upload',
+                  files: [
+                      '../../../vendor/bower/ng-file-upload/ng-file-upload.js',
+                      'js/services/admin/ginger-media-manager.js',
+                      'js/controllers/admin/media.js'
+                  ]
               }
           ]
       });

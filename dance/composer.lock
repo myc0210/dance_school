@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "59a0e84e03f6e4d6427135d22f380a68",
+    "hash": "e3b9f09de1d4a2924fcdfc9a8651809a",
     "packages": [
         {
             "name": "bower-asset/angular",
@@ -617,6 +617,30 @@
                 "mask",
                 "plugins"
             ]
+        },
+        {
+            "name": "bower-asset/ng-file-upload",
+            "version": "4.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danialfarid/ng-file-upload-bower.git",
+                "reference": "bbbbe94541145200059e3a4e86b9f60e3682933c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danialfarid/ng-file-upload-bower/zipball/bbbbe94541145200059e3a4e86b9f60e3682933c",
+                "reference": "bbbbe94541145200059e3a4e86b9f60e3682933c",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "ng-file-upload.js",
+                "bower-asset-ignore": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Lightweight Angular JS directive to upload files. Support drag&drop, progress and abort"
         },
         {
             "name": "bower-asset/ngstorage",
