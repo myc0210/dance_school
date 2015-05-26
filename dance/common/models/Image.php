@@ -7,6 +7,7 @@ use yii\db\ActiveRecord;
 class Image extends ActiveRecord
 {
     public $file;
+    public $src;
 
     public static function tableName()
     {

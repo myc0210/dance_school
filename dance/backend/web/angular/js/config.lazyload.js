@@ -123,8 +123,9 @@ angular.module('app')
               {
                   name: 'toaster',
                   files: [
-                      '../bower_components/angularjs-toaster/toaster.js',
-                      '../bower_components/angularjs-toaster/toaster.css'
+                      '../../../vendor/bower/angularjs-toaster/toaster.js',
+                      '../../../vendor/bower/angularjs-toaster/toaster.css',
+                      'js/directives/toaster-ext.js'
                   ]
               },
               {

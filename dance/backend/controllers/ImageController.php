@@ -53,11 +53,11 @@ class ImageController extends Controller
 
         if ($image->file && $image->validate()) {
             $stream = fopen($image->file->tempName, 'r+');
-            $fileName = time() . '.' . $image->file->extension;
+            $fileName = $app->security->generateRandomString() . time() . '.' . $image->file->extension;
             $flysystem->writeStream($fileName, $stream);
             fclose($stream);
             $image->name = $image->file->baseName;
-            $image->path = '/' . Yii::getAlias('@upload') . '/' . $fileName;
+            $image->path = Yii::getAlias('@upload') . '/' . $fileName;
             if(!$image->save()) {
                 $response->statusCode = 500;
             }
@@ -70,8 +70,7 @@ class ImageController extends Controller
         $app = Yii::$app;
         $response = $app->response;
         $response->format = Response::FORMAT_JSON;
-
-        $images = Image::findAll([]);
+        $images = Image::find()->all();
 
         if ($images) {
             $response->data = ['images' => $images];

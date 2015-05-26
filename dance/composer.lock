@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e3b9f09de1d4a2924fcdfc9a8651809a",
+    "hash": "86fbd650909ed21c79d8b3e76aed655b",
     "packages": [
         {
             "name": "bower-asset/angular",
@@ -329,6 +329,37 @@
             "type": "bower-asset-library",
             "extra": {
                 "bower-asset-main": "./ui-utils.js"
+            }
+        },
+        {
+            "name": "bower-asset/angularjs-toaster",
+            "version": "0.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jirikavi/AngularJS-Toaster.git",
+                "reference": "02efaf1a4a582dfbaeaac2c9d071aa756fa5c211"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jirikavi/AngularJS-Toaster/zipball/02efaf1a4a582dfbaeaac2c9d071aa756fa5c211",
+                "reference": "02efaf1a4a582dfbaeaac2c9d071aa756fa5c211",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/angular": ">1.2.6",
+                "bower-asset/angular-animate": ">1.2.8"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "toaster.js",
+                    "toaster.css"
+                ],
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "components"
+                ]
             }
         },
         {

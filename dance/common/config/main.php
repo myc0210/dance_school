@@ -22,7 +22,7 @@ return [
         ],
         'flysystem' => [
             'class' => 'creocoder\flysystem\LocalFilesystem',
-            'path' => '@webroot/images',
+            'path' => '@webroot/angular/images',
         ],
     ],
     'aliases' => [

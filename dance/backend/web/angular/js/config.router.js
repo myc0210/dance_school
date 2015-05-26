@@ -35,7 +35,10 @@ angular.module('app')
                   resolve: {
                       deps: ['$ocLazyLoad',
                           function ($ocLazyLoad) {
-                              return $ocLazyLoad.load('ng-file-upload');
+                              return $ocLazyLoad.load('toaster')
+                                  .then( function () {
+                                      return $ocLazyLoad.load('ng-file-upload');
+                                  });
                           }
                       ]
                   }

@@ -3,10 +3,20 @@
         vertical-align: middle !important;
     }
 
-    .box {
-        height: 200px;
-        background-color: green;
-        border: 2px solid blueviolet;
+    .media-toolbar {
+        margin: 10px 0;
+    }
+
+    .media-grid .i-checks {
+        position: absolute;
+        top: -5px;
+        right: 5px;
+    }
+
+    .thumbnail>.name {
+        position: absolute;
+        background-color: white;
+        opacity: 0.8;
     }
 </style>
 <script type="text/ng-template" id="template/media_upload.html">
@@ -54,28 +64,37 @@
 
 <script type="text/ng-template" id="template/media_list.html">
     <div class="row">
-        <div class="col-sm-3">
-            <input type="text" class="form-control" placeholder="Search">
+        <div class="col-sm-3 media-toolbar">
+            <input type="text" class="form-control" placeholder="Search" ng-model="search">
+        </div>
+        <div class="col-sm-4 media-toolbar">
+            <button ng-if="!bulkSelect" class="btn btn-default" ng-click="toggleBulkSelect()">Bulk
+            Select</button>
+            <button ng-if="bulkSelect" class="btn btn-default" ng-click="toggleBulkSelect()">Cancel</button>
+            <button ng-if="bulkSelect" class="btn btn-default" ng-click="deleteSelected()">Delete
+            Selected</button>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-3" ng-repeat="image in images">
-            <div class="checkbox">
-                <label class="i-checks">
-                    <input type="checkbox" value="">
-                    <i></i>
+        <div class="col-sm-3 media-grid" ng-repeat="image in images | filter:{name:search}">
+            <label class="i-checks" ng-if="bulkSelect">
+                <input type="checkbox" ng-model="image.selected">
+                <i></i>
+            </label>
+            <a class="thumbnail" href="#" ng-click="select(this)">
+                <label class="name">
+                    <span>{{image.name}}</span>
                 </label>
-            </div>
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" ng-src="image.src" alt="">
+                <img class="img-responsive" src="{{image.path}}" alt="">
             </a>
         </div>
     </div>
 </script>
 
-<div class="bg-light lter b-b wrapper-md" ng-controller="MediaController">
+<div class="wrapper-md" ng-controller="MediaController">
     <h1 class="m-n font-thin h3">media manager</h1>
     <div class="wrapper-md">
+        <toaster-container-ext></toaster-container-ext>
         <tabset>
             <tab heading="All Images">
                 <div ng-include="'template/media_list.html'">
