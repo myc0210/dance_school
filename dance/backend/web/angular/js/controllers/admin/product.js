@@ -34,37 +34,35 @@ app.controller('ProductGeneralController',
     }]
 )
 .controller('ProductCategoryController',
-    [        '$scope', '$http', '$localStorage',
-    function ($scope,   $http,   $localStorage) {
+    [        '$scope', '$http', '$log', '$localStorage', 'AdminProductService',
+    function ($scope,   $http,   $log,   $localStorage,   AdminProductService) {
         $scope.page.title = 'Product Category List';
         $scope.csrf = {value: ''};
-        $scope.categories = [
-            {
-                name: '1',
-                subCategories: [
-                    {
-                        name: '1.1',
-                        subCategories: []
-                    },
-                    {
-                        name: '1.2',
-                        subCategories: []
-                    }
-                ]
+        $scope.uiTree = {
+            maxDepth: 2
+        };
+
+        var promise = AdminProductService.init();
+        promise.then(
+            function (data) {
+                $scope.categories = data.categories;
             },
-            {
-                name: '2',
-                subCategories: [
-                    {
-                        name: '2.1',
-                        subCategories: []
-                    }
-                ]
-            },
-        ];
+            function (reason) {
+                $scope.serverError = reason;
+            }
+        );
 
         $scope.newCategory = function (scope) {
             $scope.categories.push({name: '', subCategories: []});
+        };
+
+        $scope.newSubCategory = function (scope) {
+            var node = scope.$modelValue;
+            if (scope.depth() < $scope.uiTree.maxDepth) {
+                node.subCategories.push({id: 0, name: '', subCategories: []});
+            } else {
+                alert('Only support 2 level category structure. Category > Subcategory');
+            }
         };
 
         $scope.edit = function (scope) {
@@ -78,7 +76,15 @@ app.controller('ProductGeneralController',
         };
 
         $scope.save = function () {
-
+            var promise = AdminProductService.save($scope.categories);
+            //promise.then(
+            //    function (data) {
+            //        $log.log(data);
+            //    },
+            //    function (reason) {
+            //        $scope.serverError = reason;
+            //    }
+            //);
         };
     }]
 );

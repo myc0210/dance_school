@@ -32,21 +32,75 @@ class CategoryProduct extends ActiveRecord {
         ];
     }
 
-    public static function categoryUpdate($newCategoryList)
+    public function updateCategoryList($newCategoryList)
     {
-        $categoryList = static::find()
+        $updateSuccess = true;
+        $connection = $this->getDb();
+        $oriCategoryList = static::find()
             ->where(['status' => self::STATUS_ACTIVE])
             ->all();
+        $newCategoryList = $this->getHierarchy($newCategoryList);
+        $categoryListDiff = $this->compareList($oriCategoryList, $newCategoryList);
+        $categoryListNeedUpdate = $categoryListDiff['update'];
+        $categoryListNeedDelete = $categoryListDiff['delete'];
+        $categoryListNeedInsert = $categoryListDiff['insert'];
 
+        $transaction = $connection->beginTransaction();
+        try {
+            foreach ($categoryListNeedUpdate as $categoryNeedUpdate) {
+                $query = 'UPDATE ' . $this->tableName() .
+                    ' SET name=\'' . $categoryNeedUpdate['name'] . '\'' .
+                    ', parent_id=' . $categoryNeedUpdate['parent_id'] .
+                    ' WHERE id=' . $categoryNeedUpdate['id'];
+                $updateAction = $connection->createCommand($query)->execute();
+                if ($updateAction == 0) {
+                    $updateSuccess = false;
+                }
+            }
 
+            foreach ($categoryListNeedDelete as $categoryNeedDelete) {
+                $query = 'DELETE FROM ' . $this->tableName() .
+                    ' WHERE id=' . $categoryNeedDelete['id'];
+                $deleteAction = $connection->createCommand($query)->execute();
+                if ($deleteAction == 0) {
+                    $updateSuccess = false;
+                }
+            }
+
+            foreach ($categoryListNeedInsert as $categoryNeedInsert) {
+                $time = time();
+                $query = 'INSERT INTO ' . $this->tableName() .
+                    ' (`name`, `parent_id`, `created_at`, `updated_at`) VALUES ' .
+                    '("' . $categoryNeedInsert['name'] . '", ' . $categoryNeedInsert['parent_id']
+                     . ", $time, $time" . ')';
+                $insertAction = $connection->createCommand($query)->execute();
+                if ($insertAction == 0) {
+                    $updateSuccess = false;
+                }
+            }
+
+            if ($updateSuccess) {
+                $transaction->commit();
+            } else {
+                $transaction->rollback();
+            }
+        } catch (\Exception $e) {
+            $transaction->rollback();
+            throw $e;
+        }
+
+        return $updateSuccess;
     }
 
-    public static function categoryList()
+    public function getCategoryList()
     {
         $categoryList = static::find()
             ->where(['status' => self::STATUS_ACTIVE])
             ->all();
 
+        $categoryHierarchyList = $this->setHierarchy($categoryList);
+
+        return $categoryHierarchyList;
     }
 
     public function setHierarchy($categoryList)
@@ -68,6 +122,7 @@ class CategoryProduct extends ActiveRecord {
                 $indexMapPerLevel[$category['id']] = $indexCountFirstLevel++;
             }
         }
+
         // What we have now is
         // $stack: [{category_id_list which has no parent},...]
         // $levelMap: [category_parent_id => [child_nodes],...]
@@ -78,11 +133,15 @@ class CategoryProduct extends ActiveRecord {
         $indexCountNewLevel = 0;
         $categoryHierarchyRef = &$categoryHierarchy;
         while (!$queue->isEmpty()) {
-            if (($indexCountFirstLevel--) == 1) {
+            if (($indexCountFirstLevel--) == 0) {
                 $indexCountFirstLevel = $indexCountNewLevel;
                 $queue = $nextLevelQueue;
                 $categoryHierarchyRef = &$subCategoryHierarchy;
+                if ($queue->isEmpty()) {
+                    break;
+                }
             }
+
             $parentId = $queue->dequeue();
             $childIndex = 0;
             if (isset($levelMap[$parentId])) {
@@ -127,7 +186,6 @@ class CategoryProduct extends ActiveRecord {
             $category = $queue->dequeue();
             if (sizeof($category['subCategories']) != 0) {
                 foreach ($category['subCategories'] as $subCategory) {
-                    var_dump($subCategory);
                     array_push($parsedCategoryList['idList'], $subCategory['id']);
                     $subCategoryNode = [
                         'id' => $subCategory['id'],
@@ -141,6 +199,35 @@ class CategoryProduct extends ActiveRecord {
             }
         }
 
-        return $parsedCategoryList;
+        return $parsedCategoryList['objList'];
+    }
+
+    public function compareList($oldList, $newList) {
+        $diffNodes = [
+            'update' => [],
+            'delete' => [],
+            'insert' => []
+        ];
+        foreach ($oldList as $oldNode) {
+            if(!array_key_exists($oldNode['id'], $newList)) {
+                // deleted node
+                $diffNodes['delete'][] = $oldNode;
+            } else {
+                //updated node
+                $newNode = $newList[$oldNode['id']];
+                if($newNode['name'] != $oldNode['name'] || $newNode['parent_id'] !=
+                    $oldNode['parent_id']) {
+                    $diffNodes['update'][] = $newNode;
+                }
+                unset($newList[$oldNode['id']]);
+            }
+        }
+
+        foreach ($newList as $newNode) {
+            // added node
+            $diffNodes['insert'][] = $newNode;
+        }
+
+        return $diffNodes;
     }
 }

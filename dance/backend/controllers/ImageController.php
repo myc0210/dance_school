@@ -2,6 +2,7 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\base\ErrorException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\filters\auth\HttpBearerAuth;
@@ -54,12 +55,15 @@ class ImageController extends Controller
         if ($image->file && $image->validate()) {
             $stream = fopen($image->file->tempName, 'r+');
             $fileName = $app->security->generateRandomString() . time() . '.' . $image->file->extension;
-            $flysystem->writeStream($fileName, $stream);
+            $filePath = Yii::getAlias('@upload') . '/' . $fileName;
+            $flysystem->writeStream($filePath, $stream);
             fclose($stream);
             $image->name = $image->file->baseName;
-            $image->path = Yii::getAlias('@upload') . '/' . $fileName;
+            $image->path = $filePath;
             if(!$image->save()) {
                 $response->statusCode = 500;
+            } else {
+                $response->data = ['image' => $image];
             }
             return $response;
         }
@@ -83,7 +87,32 @@ class ImageController extends Controller
 
     public function actionDelete()
     {
+        $app = Yii::$app;
+        $request = $app->request;
+        $response = $app->response;
+        $flysystem = $app->flysystem;
+        $post = $request->post();
+        $id = $post['id'];
+        $image = Image::findOne($id);
+        $path = $image->path;
 
+        $response->format = Response::FORMAT_JSON;
+        try {
+            if (false !== $flysystem->has($path)) {
+                if (false !== $flysystem->delete($path)) {
+                    if (false !== $image->delete()) {
+                        $response->data = ['status' => 'success'];
+                        return $response;
+                    }
+                }
+            }
+            $response->statusCode = 500;
+            return $response;
+        } catch (ErrorException $e) {
+            $response->statusCode = 500;
+            $response->data = ['status' => 'fail', 'error' => $e];
+            return $response;
+        }
     }
 }
 

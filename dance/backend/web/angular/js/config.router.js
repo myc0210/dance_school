@@ -73,12 +73,12 @@ angular.module('app')
                   resolve: {
                       deps: ['$ocLazyLoad',
                           function ($ocLazyLoad) {
-                              return $ocLazyLoad.load('ui.tree');
-                              //.then(
-                              //  function () {
-                              //      return $ocLazyLoad.load('js/controllers/admin/product.js');
-                              //  }
-                              //);
+                              return $ocLazyLoad.load('ui.tree')
+                              .then(
+                                function () {
+                                    return $ocLazyLoad.load('js/services/admin/product.js');
+                                }
+                              );
                           }
                       ]
                   }

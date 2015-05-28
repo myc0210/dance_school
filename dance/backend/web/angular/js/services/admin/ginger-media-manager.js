@@ -21,7 +21,7 @@ app.factory('GingerMediaManager',
             delete: function (id) {
                 var deferred = $q.defer();
                 $http({
-                    method: 'GET',
+                    method: 'POST',
                     url: 'image/delete',
                     data: {
                         id: id

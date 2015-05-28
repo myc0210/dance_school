@@ -13,8 +13,9 @@
     /**
      * Site controller
      */
-    class UserController extends Controller
+    class ProductController extends Controller
     {
+        public $enableCsrfValidation = false;
         /**
          * @inheritdoc
          */
@@ -69,9 +70,23 @@
         public function actionCategoryUpdate()
         {
             $app = Yii::$app;
+            $response = $app->response;
+            $response->format = Response::FORMAT_JSON;
             $request = $app->request;
             $post = $request->post();
+            $categoryHierarchyList = $post['categories'];
+            $categoryModel = new CategoryProduct();
+            $categoryFlatList = $categoryModel->updateCategoryList($categoryHierarchyList);
+            $response->data = ['categories' => $categoryFlatList];
+        }
 
-
+        public function actionCategoryList()
+        {
+            $app = Yii::$app;
+            $response = $app->response;
+            $response->format = Response::FORMAT_JSON;
+            $categoryModel = new CategoryProduct();
+            $categoryHierarchyList = $categoryModel->getCategoryList();
+            $response->data = ['categories' => $categoryHierarchyList];
         }
     }

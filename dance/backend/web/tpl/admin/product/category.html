@@ -48,7 +48,7 @@
                 disabled>
                 <span class="glyphicon icon-ban"></span>
         </button>
-        <input type="text" value="{{category.name}}" ng-disabled="!category.edit"
+        <input type="text" ng-model="category.name" ng-disabled="!category.edit"
         placeholder="Category Name">
         <button ng-if="category.edit" class="btn btn-sm btn-success margin-left-5px"
         ng-click="editFinish(this)">OK
