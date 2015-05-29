@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "86fbd650909ed21c79d8b3e76aed655b",
+    "hash": "fa25e0c95d8155831421e2e8d97838bf",
     "packages": [
         {
             "name": "bower-asset/angular",
@@ -250,6 +250,50 @@
                     "files.js"
                 ]
             }
+        },
+        {
+            "name": "bower-asset/angular-ui-select",
+            "version": "v0.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/angular-ui/ui-select.git",
+                "reference": "2d1422d109dc1cd64213271e59506b14f74d356f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/angular-ui/ui-select/zipball/2d1422d109dc1cd64213271e59506b14f74d356f",
+                "reference": "2d1422d109dc1cd64213271e59506b14f74d356f",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/angular": ">=1.2.18"
+            },
+            "require-dev": {
+                "bower-asset/angular-mocks": ">=1.2.18",
+                "bower-asset/angular-sanitize": ">=1.2.18",
+                "bower-asset/jquery": "~1.11"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/select.js",
+                    "dist/select.css"
+                ],
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "src",
+                    "test",
+                    "gulpfile.js",
+                    "karma.conf.js",
+                    "examples"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "AngularJS ui-select"
         },
         {
             "name": "bower-asset/angular-ui-tree",

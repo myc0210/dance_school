@@ -17,20 +17,70 @@ app.controller('ProductGeneralController',
     }]
 )
 .controller('ProductAddController',
-    [        '$scope', '$http',
-    function ($scope,   $http) {
-        $scope.page.title = 'Add New Product';
-        $scope.product = {
-            name: '',
-            code: '',
-            color: 'N/A',
-            size: 'N/A',
-            price: '0.00',
-            cost: '0.00',
-            description: ''
-        };
-        $scope.csrf = {value: ''};
+    [        '$scope', '$http', '$state', '$localStorage',
+    function ($scope,   $http,   $state,   $localStorage) {
+        var variationProductTemplate = {
+                code: '',
+                color: '',
+                size: '',
+                cost: '',
+                price: ''
+            };
 
+        $scope.page.title = 'Add New Product';
+        $scope.csrf = {value: ''};
+        $scope.attachedImages = [];
+
+        $scope.init = function () {
+            var variationProduct = {},
+                productCache = $localStorage.adminProductCache,
+                attachedImages = $localStorage.attachedImages;
+            angular.copy(variationProductTemplate, variationProduct);
+
+            if (productCache) {
+                $scope.product = productCache;
+            } else {
+                $scope.product = {
+                    name: '',
+                    variationProducts: [
+                        variationProduct,
+                    ],
+                    description: ''
+                };
+            }
+
+            if (attachedImages) {
+                $scope.attachedImages = $scope.attachedImages.concat(attachedImages);
+            }
+        };
+
+        $scope.addImages = function () {
+            $localStorage.adminProductCache = $scope.product;
+            $state.go('admin.media-manager', {select: true});
+        };
+
+        $scope.addCategories = function () {
+            $localStorage.adminProductCache = $scope.product;
+            $state.go('admin.product.')
+        };
+
+        $scope.newVariationProduct = function () {
+            var variationProduct = {};
+            angular.copy(variationProductTemplate, variationProduct);
+            $scope.product.variationProducts.push(variationProduct);
+        };
+
+        $scope.duplicate = function (variationProductSrc) {
+            var variationProduct = {};
+            angular.copy(variationProductSrc, variationProduct);
+            $scope.product.variationProducts.push(variationProduct);
+        };
+
+        $scope.delete = function (index) {
+            $scope.product.variationProducts.splice(index, 1);
+        };
+
+        $scope.init();
     }]
 )
 .controller('ProductCategoryController',

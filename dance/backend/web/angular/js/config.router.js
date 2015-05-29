@@ -30,7 +30,7 @@ angular.module('app')
                   templateUrl: 'tpl/admin/dashboard.html'
               })
               .state('admin.media-manager', {
-                  url: '/media-manager',
+                  url: '/media-manager/{select}',
                   templateUrl: 'tpl/admin/media_manager.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
