@@ -87,6 +87,7 @@
             $response->format = Response::FORMAT_JSON;
             $categoryModel = new CategoryProduct();
             $categoryHierarchyList = $categoryModel->getCategoryList();
-            $response->data = ['categories' => $categoryHierarchyList];
+            $response->data = ['categories' => $categoryHierarchyList['categories'], 'maxId' =>
+            $categoryHierarchyList['maxId']];
         }
     }

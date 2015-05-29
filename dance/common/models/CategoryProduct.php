@@ -96,11 +96,12 @@ class CategoryProduct extends ActiveRecord {
     {
         $categoryList = static::find()
             ->where(['status' => self::STATUS_ACTIVE])
+            ->orderBy(['id' => SORT_DESC])
             ->all();
-
+        $maxId = $categoryList[0]->id;
         $categoryHierarchyList = $this->setHierarchy($categoryList);
 
-        return $categoryHierarchyList;
+        return ['categories' => $categoryHierarchyList, 'maxId' => $maxId];
     }
 
     public function setHierarchy($categoryList)
@@ -110,6 +111,8 @@ class CategoryProduct extends ActiveRecord {
         $indexMapPerLevel = [];
         $indexCountFirstLevel = 0;
         $queue = new \SplQueue();
+        $categoryHierarchy = [];
+
         foreach ($categoryList as $category) {
             $levelMap[$category['parent_id']][] = $category;
             if ($category['parent_id'] == 0) {
@@ -223,6 +226,7 @@ class CategoryProduct extends ActiveRecord {
             }
         }
 
+        ksort($newList);
         foreach ($newList as $newNode) {
             // added node
             $diffNodes['insert'][] = $newNode;

@@ -46,6 +46,7 @@ app.controller('ProductGeneralController',
         promise.then(
             function (data) {
                 $scope.categories = data.categories;
+                $scope.maxId = data.maxId;
             },
             function (reason) {
                 $scope.serverError = reason;
@@ -53,13 +54,13 @@ app.controller('ProductGeneralController',
         );
 
         $scope.newCategory = function (scope) {
-            $scope.categories.push({name: '', subCategories: []});
+            $scope.categories.push({id: ++$scope.maxId, name: '', subCategories: []});
         };
 
         $scope.newSubCategory = function (scope) {
             var node = scope.$modelValue;
             if (scope.depth() < $scope.uiTree.maxDepth) {
-                node.subCategories.push({id: 0, name: '', subCategories: []});
+                node.subCategories.push({id: ++$scope.maxId, name: '', subCategories: []});
             } else {
                 alert('Only support 2 level category structure. Category > Subcategory');
             }
