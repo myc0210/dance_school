@@ -4,7 +4,7 @@ app.factory('AdminProductService',
     [        '$http','$q',
     function ($http,  $q) {
         return {
-            init: function () {
+            listCategory: function () {
                 var deferred = $q.defer();
                 $http({
                     method: 'GET',
@@ -18,7 +18,7 @@ app.factory('AdminProductService',
                 });
                 return deferred.promise;
             },
-            save: function (categories) {
+            updateCategory: function (categories) {
                 var deferred = $q.defer();
                 $http({
                     method: 'POST',

@@ -55,17 +55,21 @@ angular.module('app')
               .state('admin.product.add', {
                   url: '/add',
                   templateUrl: 'csrftemplate/?url=admin/product/add.html',
-                  //resolve: {
-                  //    deps: ['$ocLazyLoad',
-                  //        function( $ocLazyLoad ){
-                  //            return $ocLazyLoad.load('ui.tree');
-                  //            //.then(
-                  //            //    function() {
-                  //            //        return $ocLazyLoad.load('perfect-scrollbar');
-                  //            //    }
-                  //            //);
-                  //        }]
-                  //}
+                  controller: 'ProductAddController',
+                  resolve: {
+                      preloadCategories: ['AdminProductService', function(AdminProductService) {
+                          return AdminProductService.listCategory();
+                      }],
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load('ui.select');
+                              //.then(
+                              //    function() {
+                              //        return $ocLazyLoad.load('perfect-scrollbar');
+                              //    }
+                              //);
+                          }]
+                  }
               })
               .state('admin.product.category', {
                   url: '/category',
@@ -73,12 +77,12 @@ angular.module('app')
                   resolve: {
                       deps: ['$ocLazyLoad',
                           function ($ocLazyLoad) {
-                              return $ocLazyLoad.load('ui.tree')
-                              .then(
-                                function () {
-                                    return $ocLazyLoad.load('js/services/admin/product.js');
-                                }
-                              );
+                              return $ocLazyLoad.load('ui.tree');
+                              //.then(
+                              //  function () {
+                              //      return $ocLazyLoad.load('js/services/admin/product.js');
+                              //  }
+                              //);
                           }
                       ]
                   }

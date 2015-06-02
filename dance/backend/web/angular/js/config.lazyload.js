@@ -92,8 +92,8 @@ angular.module('app')
               {
                   name: 'ui.select',
                   files: [
-                      '../bower_components/angular-ui-select/dist/select.min.js',
-                      '../bower_components/angular-ui-select/dist/select.min.css'
+                      '../../../vendor/bower/angular-ui-select/dist/select.min.js',
+                      '../../../vendor/bower/angular-ui-select/dist/select.min.css'
                   ]
               },
               {

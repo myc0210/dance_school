@@ -17,16 +17,16 @@ app.controller('ProductGeneralController',
     }]
 )
 .controller('ProductAddController',
-    [        '$scope', '$http', '$state', '$localStorage',
-    function ($scope,   $http,   $state,   $localStorage) {
+    [        '$scope', '$http', '$state', '$localStorage', 'preloadCategories',
+    function ($scope,   $http,   $state,   $localStorage,   preloadCategories) {
         var variationProductTemplate = {
                 code: '',
+                level: '',
                 color: '',
                 size: '',
                 cost: '',
                 price: ''
             };
-
         $scope.page.title = 'Add New Product';
         $scope.csrf = {value: ''};
         $scope.attachedImages = [];
@@ -45,12 +45,17 @@ app.controller('ProductGeneralController',
                     variationProducts: [
                         variationProduct,
                     ],
-                    description: ''
+                    description: '',
+                    category: '',
+                    subcategory: '',
                 };
             }
 
+            $scope.categories = preloadCategories.categories;
+            $scope.subcategories = [];
+
             if (attachedImages) {
-                $scope.attachedImages = $scope.attachedImages.concat(attachedImages);
+                $scope.attachedImages = attachedImages;
             }
         };
 
@@ -61,7 +66,7 @@ app.controller('ProductGeneralController',
 
         $scope.addCategories = function () {
             $localStorage.adminProductCache = $scope.product;
-            $state.go('admin.product.')
+            $state.go('admin.product.category')
         };
 
         $scope.newVariationProduct = function () {
@@ -80,6 +85,25 @@ app.controller('ProductGeneralController',
             $scope.product.variationProducts.splice(index, 1);
         };
 
+        $scope.thumbnailSetDefault = function (index) {
+            angular.forEach($scope.attachedImages, function (value, key, object) {
+                if (value.default == true) {
+                    object[key].default = false;
+                }
+            });
+            $scope.attachedImages[index].default = true;
+            $localStorage.defaultImageIndex = index;
+        };
+
+        $scope.thumbnailDelete = function (index) {
+            $scope.attachedImages.splice(index, 1);
+        };
+
+        $scope.updateSubcategories = function () {
+            console.log($scope.product.category);
+            $scope.subcategories = $scope.product.category.subCategories;
+        };
+
         $scope.init();
     }]
 )
@@ -92,7 +116,7 @@ app.controller('ProductGeneralController',
             maxDepth: 2
         };
 
-        var promise = AdminProductService.init();
+        var promise = AdminProductService.listCategory();
         promise.then(
             function (data) {
                 $scope.categories = data.categories;
@@ -127,7 +151,7 @@ app.controller('ProductGeneralController',
         };
 
         $scope.save = function () {
-            var promise = AdminProductService.save($scope.categories);
+            var promise = AdminProductService.updateCategory($scope.categories);
             //promise.then(
             //    function (data) {
             //        $log.log(data);
