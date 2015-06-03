@@ -46,7 +46,14 @@ angular.module('app')
               .state('admin.product', {
                   abstract: true,
                   url: '/product',
-                  templateUrl: 'tpl/admin/product/general.html'
+                  templateUrl: 'tpl/admin/product/general.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function ($ocLazyLoad) {
+                              return $ocLazyLoad.load('toaster');
+                          }
+                      ]
+                  }
               })
               .state('admin.product.list', {
                   url: '/list',
@@ -473,7 +480,7 @@ angular.module('app')
               })
               .state('access.signin', {
                   url: '/signin',
-                  templateUrl: 'template/?url=page_signin.html',
+                  templateUrl: 'csrftemplate/?url=page_signin.html',
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad ){

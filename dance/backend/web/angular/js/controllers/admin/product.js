@@ -17,16 +17,17 @@ app.controller('ProductGeneralController',
     }]
 )
 .controller('ProductAddController',
-    [        '$scope', '$http', '$state', '$localStorage', 'preloadCategories',
-    function ($scope,   $http,   $state,   $localStorage,   preloadCategories) {
+    [        '$scope', '$http', '$state', '$localStorage', 'toaster', 'AdminProductService', 'preloadCategories',
+    function ($scope,   $http,   $state,   $localStorage,   toaster,   AdminProductService,   preloadCategories) {
         var variationProductTemplate = {
-                code: '',
-                level: '',
-                color: '',
-                size: '',
-                cost: '',
-                price: ''
-            };
+            code: '',
+            level: '',
+            color: '',
+            size: '',
+            cost: '',
+            price: ''
+        };
+
         $scope.page.title = 'Add New Product';
         $scope.csrf = {value: ''};
         $scope.attachedImages = [];
@@ -46,8 +47,8 @@ app.controller('ProductGeneralController',
                         variationProduct,
                     ],
                     description: '',
-                    category: '',
-                    subcategory: '',
+                    category: 0,
+                    subcategory: 0
                 };
             }
 
@@ -55,7 +56,7 @@ app.controller('ProductGeneralController',
             $scope.subcategories = [];
 
             if (attachedImages) {
-                $scope.attachedImages = attachedImages;
+                $scope.product.attachedImages = attachedImages;
             }
         };
 
@@ -69,34 +70,62 @@ app.controller('ProductGeneralController',
             $state.go('admin.product.category')
         };
 
-        $scope.newVariationProduct = function () {
-            var variationProduct = {};
-            angular.copy(variationProductTemplate, variationProduct);
-            $scope.product.variationProducts.push(variationProduct);
-        };
-
         $scope.duplicate = function (variationProductSrc) {
             var variationProduct = {};
             angular.copy(variationProductSrc, variationProduct);
             $scope.product.variationProducts.push(variationProduct);
         };
 
-        $scope.delete = function (index) {
+        $scope.deleteVariationProduct = function (index) {
             $scope.product.variationProducts.splice(index, 1);
         };
 
+        $scope.newVariationProduct = function () {
+            var variationProduct = {};
+            angular.copy(variationProductTemplate, variationProduct);
+            $scope.product.variationProducts.push(variationProduct);
+        };
+
+        $scope.saveProduct = function () {
+            toaster.pop('wait', 'empty', 'empty', 0);
+            var promise = AdminProductService.saveProduct($scope.product);
+            promise.then(
+                function (data) {
+                    toaster.clear();
+                },
+                function (reason) {
+                    $scope.serverError = reason;
+                }
+            );
+        };
+
         $scope.thumbnailSetDefault = function (index) {
-            angular.forEach($scope.attachedImages, function (value, key, object) {
+            var defaultImage = $scope.product.attachedImages[index];
+
+            angular.forEach($scope.product.attachedImages, function (value, key, object) {
                 if (value.default == true) {
                     object[key].default = false;
                 }
             });
-            $scope.attachedImages[index].default = true;
+
+            defaultImage.default = true;
+            $scope.product.showcaseDetail.image = defaultImage;
+
             $localStorage.defaultImageIndex = index;
         };
 
         $scope.thumbnailDelete = function (index) {
-            $scope.attachedImages.splice(index, 1);
+            var attachedImages = $scope.product.attachedImages;
+
+            attachedImages.splice(index, 1);
+
+            if (attachedImages.length == 0) {
+                delete $localStorage.defaultImageIndex;
+            } else {
+                attachedImages[0].default = true;
+                $localStorage.defaultImageIndex = 0;
+            }
+
         };
 
         $scope.updateSubcategories = function () {

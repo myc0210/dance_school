@@ -18,6 +18,23 @@ app.factory('AdminProductService',
                 });
                 return deferred.promise;
             },
+            saveProduct: function (product) {
+                var deferred = $q.defer();
+                $http({
+                    method: 'POST',
+                    url: 'product/product-save',
+                    data: {
+                        product: product
+                    }
+                })
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                })
+                .error(function (data, status, headers, config) {
+                    deferred.reject(data);
+                });
+                return deferred.promise;
+            },
             updateCategory: function (categories) {
                 var deferred = $q.defer();
                 $http({
