@@ -2,24 +2,15 @@
     <div class="panel panel-default">
         <div class="table-responsive">
             <table ui-jq="dataTable"
-                ui-options="{
-                  sAjaxSource: 'api/datatable.json',
-                  aoColumns: [
-                    { mData: 'engine' },
-                    { mData: 'browser' },
-                    { mData: 'platform' },
-                    { mData: 'version' },
-                    { mData: 'grade' }
-                  ]
-                }"
+                ui-options="dtOption"
                 class="table table-striped b-t b-b">
                 <thead>
                 <tr>
-                    <th  style="width:20%">Rendering engine</th>
-                    <th  style="width:25%">Browser</th>
-                    <th  style="width:25%">Platform(s)</th>
-                    <th  style="width:15%">Engine version</th>
-                    <th  style="width:15%">CSS grade</th>
+                    <th  style="width:20%">Name</th>
+                    <th  style="width:25%">Price</th>
+                    <th  style="width:25%">Create Date</th>
+                    <th  style="width:15%">Update Date</th>
+                    <th  style="width:15%">Actions</th>
                 </tr>
                 </thead>
                 <tbody>

@@ -9,11 +9,20 @@ app.controller('ProductGeneralController',
     }]
 )
 .controller('ProductListController',
-    [        '$scope', '$http',
-    function ($scope,   $http) {
+    [        '$scope', '$http', '$timeout',
+    function ($scope,   $http,   $timeout) {
         $scope.page.title = 'Product List';
         $scope.product = {};
-
+        $scope.dtOption = {
+            sAjaxSource: 'api/datatable.json',
+            aoColumns: [
+                { mData: 'engine' },
+                { mData: 'browser' },
+                { mData: 'platform' },
+                { mData: 'version' },
+                { mData: 'grade' }
+            ]
+        };
     }]
 )
 .controller('ProductAddController',
