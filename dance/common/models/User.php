@@ -234,4 +234,19 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    public function generateUid()
+    {
+        $pass = false;
+        do {
+            $uid = mt_rand(0, 999999);
+            $uid = str_pad($uid, '0', STR_PAD_LEFT);
+            $uidExist = static::findOne(['uid' => $uid]);
+            if ($uidExist === null) {
+                $pass = true;
+            }
+        } while (!$pass);
+
+        return $uid;
+    }
 }

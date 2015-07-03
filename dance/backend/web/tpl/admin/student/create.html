@@ -1,0 +1,44 @@
+<div class="wrapper-md">
+    <toaster-container-ext></toaster-container-ext>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form role="form">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>Fist Name*</label>
+                        <input type="text" class="form-control" ng-model="student.firstName" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Last Name*</label>
+                        <input type="text" class="form-control" ng-model="student.lastName" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>NRIC/Passport No*</label>
+                        <input type="text" class="form-control" ng-model="student.identityNo" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Email*</label>
+                        <input type="text" class="form-control" ng-model="student.email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>Home No*</label>
+                        <input type="text" class="form-control" ng-model="student.homePhone" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Mobile No*</label>
+                        <input type="text" class="form-control" ng-model="student.mobilePhone" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1 col-md-offset-11">
+                        <button type="button" class="btn btn-primary" ng-click="studentCreate()">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

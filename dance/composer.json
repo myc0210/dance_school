@@ -34,14 +34,15 @@
         "bower-asset/bootstrap": "~3.3.4",
         "bower-asset/font-awesome": "~4.3.0",
         "bower-asset/simple-line-icons": "~1.0.0",
-        "bower-asset/ocLazyLoad": "*",
+        "bower-asset/ocLazyLoad": "1.0.1",
         "bower-asset/css-spinners": "2.0.2",
         "bower-asset/datatables": "1.10.7",
         "bower-asset/angular-ui-tree": "^2.4",
         "bower-asset/angular-perfect-scrollbar": "^0.0.4",
         "bower-asset/ng-file-upload": "^4.2",
         "bower-asset/angularjs-toaster": "^0.4.13",
-        "bower-asset/angular-ui-select": "^0.12.0"
+        "bower-asset/angular-ui-select": "^0.12.0",
+        "bower-asset/angular-datatables": "~0.5"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

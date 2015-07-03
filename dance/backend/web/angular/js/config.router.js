@@ -94,6 +94,37 @@ angular.module('app')
                       ]
                   }
               })
+              .state('admin.student', {
+                  abstract: true,
+                  url: '/student',
+                  templateUrl: 'tpl/admin/student/general.html',
+                  controller: 'AdminStudentGeneralController'
+              })
+              .state('admin.student.list', {
+                  url: '/list',
+                  templateUrl: 'csrftemplate/?url=admin/student/list.html',
+                  resolve: {
+                      preloadCategories: ['AdminStudentService', function(AdminStudentService) {
+                          return AdminStudentService.getAllStudents();
+                      }]
+                  }
+              })
+              .state('admin.student.create', {
+                  url: '/create',
+                  templateUrl: 'csrftemplate/?url=admin/student/create.html',
+                  controller: 'AdminStudentCreateController',
+                  resolve: {
+                  }
+              })
+              .state('admin.student.trail', {
+                  url: '/trail/:studentId',
+                  templateUrl: 'csrftemplate/?url=admin/student/create.html',
+                  resolve: {
+                      preloadCategories: ['AdminProductService', '$stateParams', function(AdminProductService, $stateParams) {
+                          return AdminProductService.getStudent($stateParams.studentId);
+                      }]
+                  }
+              })
               .state('app', {
                   abstract: true,
                   url: '/app',
@@ -536,7 +567,7 @@ angular.module('app')
                       deps: ['uiLoad',
                         function( uiLoad ){
                           return uiLoad.load( ['js/app/mail/mail.js',
-                                               'js/app/mail/mail-service.js',
+                                               'js/app/mail/mail-student.js',
                                                JQ_CONFIG.moment] );
                       }]
                   }
