@@ -25,7 +25,7 @@ app.factory('AdminStudentService',
                 var deferred = $q.defer();
                 $http({
                     method: 'POST',
-                    url: 'student/student-delete',
+                    url: 'student/student-terminate',
                     data: {
                         studentId: studentId
                     }

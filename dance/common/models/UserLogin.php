@@ -10,10 +10,11 @@ use yii\base\Model;
 class UserLogin extends Model
 {
     public $username;
+    public $nric;
     public $password;
 
-    private $_user = false;
-    private $_accessToken = false;
+    private $_user = FALSE;
+    private $_accessToken = FALSE;
 
     /**
      * @inheritdoc
@@ -22,10 +23,26 @@ class UserLogin extends Model
     {
         return [
             // username and password are both required
-            [['username', 'password'], 'required'],
-            // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            [['username', 'password', 'nric'], 'safe'],
         ];
+    }
+
+    public function getStudentByNRIC()
+    {
+        if ($this->_user === false) {
+            $this->_user = User::findByNRIC($this->nric);
+            if (!empty($this->_user)) {
+//                var_dump($this->_user);
+                $userRole = $this->getRole();
+                if ($userRole == 'relative') {
+                    $relative = RelativeProfile::find()->with('student')->where(['user_id' => $this->_user->id, 'status' => 10])->one();
+                    return $relative->student;
+                } else if ($userRole == 'student') {
+                    return $this->_user;
+                }
+            }
+        }
+        return $this->_user;
     }
 
     /**

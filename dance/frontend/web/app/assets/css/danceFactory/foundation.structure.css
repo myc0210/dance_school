@@ -1,0 +1,775 @@
+/*  ============================================================
+	Dance Factory Structure Stylesheet
+	Last Update: 4 June 2015
+	============================================================
+
+	>>> TABLE OF CONTENTS:
+	--------------------------------------------------------------
+	# Main Structure
+	# Utility Classes
+	# Typography
+	# Header + Footer
+	# Page Elements
+	# Forms
+	# Buttons
+	# Table
+	# Image
+	# Links
+	# Transitions
+	# Custom Elements
+		## Big Branding
+		## Breadcrumbs
+		## Panel
+		## List
+		## Icons
+		## Block Grid		
+		## Product List
+		## Star Rating
+		## Teacher Profile
+		## Shopping Cart
+		## Checkout
+	--------------------------------------------------------------
+*/
+
+	/* position keyboard at bottom of the screen - jQuery UI isn't even loaded! */
+	.ui-keyboard {
+		border-radius: 0;
+		left: 0;
+		top: auto;
+		bottom: 0;
+		position: fixed;
+		width: 100%;
+		background-color: #111;
+		text-align: center;
+		padding: 2em;
+		z-index: 9999;
+	}
+
+	.ui-keyboard-button {
+		height: 3em;
+		min-width: 3em;
+		margin: .2em;
+		padding: 0 1em;
+		cursor: pointer;
+		overflow: hidden;
+		line-height: 3em;
+		-moz-user-focus: ignore;
+		border: none;
+		border-radius: 4px;
+		text-transform: none;
+	}
+
+	.ui-keyboard-space {
+		width: 15em;
+		text-indent: 9999px;
+	}
+
+	.ui-keyboard-accept { background-color: #74da0e; }
+	.ui-keyboard-accept:hover,
+	.ui-keyboard-accept:focus { background-color: #5dae0b; }
+
+	.ui-keyboard-cancel { background-color: #ff2626; }
+	.ui-keyboard-cancel:hover,
+	.ui-keyboard-cancel:focus { background-color: #ea0000; }
+
+	.ui-keyboard-bksp,
+	.ui-keyboard-del { background-color: #f08a24; }
+	.ui-keyboard-bksp:hover,
+	.ui-keyboard-bksp:focus,
+	.ui-keyboard-del:hover,
+	.ui-keyboard-del:focus { background-color: #cf6e0e; }
+
+	.ui-keyboard-has-focus {
+		bottom: ;
+	}
+
+	body:before {
+		content: 'Version 1.2.0 | Last Update: 2015-07-15';
+		display: none;
+		/*display: block;*/
+		font-size: 0.84em;    	
+		line-height: 1.6em;
+		text-align: center;
+		color: #222;
+		background: #fcbd00;
+	}
+
+/*	# Main Structure
+	--------------------------------------------------------------*/
+	.main-content {
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}
+
+	.content {
+		margin-top: 2.5rem !important;
+	}
+
+/*	Known issue: Doesn't work when the .content isn't the first element in its parent */
+	.content:first-child,
+	.content-container > .content:first-child {
+		margin-top: 0 !important;
+	}
+
+/*	To disable the behaviour of floating the last element to the right */
+	.column + .column:last-child,
+	.columns + .column:last-child,
+	.column + .columns:last-child,
+	.columns + .columns:last-child {
+		float: auto;
+	}
+
+/*	# Utility Classes
+	--------------------------------------------------------------*/
+	.round { border-radius: 100%; }
+	.radius { border-radius: 12px !important; }    
+	.stroke { border: 4px #fff solid; }
+
+	.fixed-top,
+	.fixed-bottom {
+		position: fixed;
+		right: 0;
+		left: 0;
+		z-index: 1030;
+	}
+	.fixed-top { top: 0; }
+	.fixed-bottom { bottom: 0; }
+
+	.no-margin { margin: 0 !important; }
+	.no-padding { padding: 0 !important; }
+
+/*	# Typography
+	--------------------------------------------------------------*/
+
+/*	Declare Font */
+	body,
+	h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', sans-serif; }
+
+/*	Setting Font Variation */
+	h1, h2, h3, h4, h5, h6 { font-weight: 100; }
+	strong, b,
+	.strong { font-weight: bold; }
+	.thin { font-weight: 100; }
+
+/*	Custom Font Size/Weight Adjustment */
+	small { 
+		font-size: 0.84rem;
+		font-weight: 600;
+	}
+
+	button, .button { text-transform: uppercase; }
+
+/*	# Header +  Footer
+	--------------------------------------------------------------*/
+	.header,
+	.footer {
+		padding: 1em 2em;
+		line-height: 2em;
+	}
+
+	.header {
+		background: url(../../img/background-header.png) center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+/*	Nav Branding + User Profile (Only appear on header) */
+	.nav-branding,
+	.user-profile .user-photo {
+		height: 48px;
+	}
+
+	.nav-tagline { 
+		max-width: 16em;
+		margin: 0 0.75em;
+	}
+
+	.nav-branding-wrapper > * {
+		vertical-align: middle;
+	}   
+
+	/*	User Profile + Action */
+		.user-profile { font-size: 0.875rem; }
+
+		.user-profile .user-photo {
+			border-radius: 9999px;
+			margin-right: 6px;
+		}
+
+		.user-profile .user-name,
+		.user-profile .user-name:focus {
+			width: auto;
+			padding-right: 1.6em;
+			background-color: transparent;
+			border: none !important;
+		}
+
+		.user-profile > .user-action:before {
+			content: '|';
+			margin-right: 6px;
+			margin-left: 6px;
+		}
+
+	@media only screen and (max-width: 64em) {
+		.nav-branding,
+		.user-profile .user-photo {
+			height: 48px;
+		}
+	}
+
+	/* Add bottom margin on small screen */
+	@media only screen and (max-width: 40em) {
+		.nav-branding,
+		.nav-tagline {
+			margin-bottom: 1.25rem;
+		}
+	}
+
+	.footer {
+		font-size: 0.84em;
+		background: url(../../img/background-footer.png) center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.footer .icon.link { display: inline; }
+
+/*	Change max-width unit to rem so that font-size changes wouldn't affect the footer width */
+	.footer .row {
+		max-width: 62.5rem;
+	}
+
+/*	# Page Elements
+	--------------------------------------------------------------*/
+	.page-title {
+		margin-top: 0;
+		line-height: 1;
+	}
+
+/*	# Forms
+	--------------------------------------------------------------*/
+	.input,
+	input[type="text"],
+	input[type="password"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="month"],
+	input[type="week"],
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	input[type="color"],
+	textarea,
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		outline: none;
+		box-shadow: none;
+		padding: 0.5rem 0.75rem;
+		border-radius: 12px;
+	}
+
+/*	Large Form Fields */
+	input.large,
+	textarea.large,
+	select.large {
+		height: 3.2rem;
+	}
+
+/*	Input Field with Icon */
+	input.add.icon {
+		background-position: 1em center;
+		background-size: 1em 1em;
+		background-repeat: no-repeat;
+		padding-left: 2.5em;
+	}
+
+	input.large.add.icon {
+		width: 100%;
+  		height: 3.2rem;
+		background-position: 1em center;
+		background-size: 1.6em 1.6em;
+		background-repeat: no-repeat;
+		padding-left: 3.2em;
+	}
+
+/*  Select Field with custom caret image */
+	select { background-image: url(../../img/caret.svg); }
+
+/*	Postfix Labels */
+	span.postfix,
+	label.postfix {
+		border-top-right-radius: 12px;
+		border-bottom-right-radius: 12px;
+	}
+
+	/*	Postfix + Prefix Labels */
+		.prefix-radius .columns > * {
+			border-radius: 0;
+			border: 0;
+		}
+		.prefix-radius .prefix {
+			border-top-left-radius: 12px;
+			border-bottom-left-radius: 12px;
+		}
+		.postfix-radius .postfix {
+			padding: 0;
+			border-top-right-radius: 12px;
+			border-bottom-right-radius: 12px;
+		}
+
+/*	Label Indentation */
+	label.indent { padding-left: 0.75rem; }
+
+/*	Number Input */
+	.quantity-input { padding-top: 6px; }
+	.quantity-input .input-quantity { text-align: center; }
+	.quantity-input .button { 
+		font-size: 18px;
+		font-weight: bold;
+		-webkit-user-select: none;  /* Chrome all / Safari all */
+  		-moz-user-select: none;     /* Firefox all */
+  		-ms-user-select: none;      /* IE 10+ */
+  		user-select: none;          /* Likely future */
+	}
+	/*(Removing Increment Buttons)*/
+	input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button { 
+		-webkit-appearance: none; 
+		margin: 0; 
+	}
+
+/*	# Buttons
+	--------------------------------------------------------------*/
+	.button.small {
+		font-size: 0.8rem;
+		font-weight: 500;
+		padding: 0.475rem 0.75rem 0.5rem 0.75rem;
+	}
+
+	button, .button { border-width: 2px; }
+
+/*	Circle Button */
+	.button.circle {
+		width: 60px;
+		height: 60px;
+		line-height: 52px;
+		padding: 0;
+		text-align: center;
+	}
+
+/*	Button with Arrow Indication */
+	.button.caret:after {
+		content: '';
+		width: 0;
+		height: 0;
+		border: 5px solid transparent;
+		border-left: 5px solid black;
+		display: block;
+		float: right;
+		margin-top: 4px;
+		margin-left: 12px;
+		margin-right: -6px;
+	}
+
+/*	# Table
+	--------------------------------------------------------------*/
+	table.clean {
+		width: 100%;
+		border: none;
+		background: transparent;
+	}
+	table.clean tr th,
+	table.clean tr td {
+		padding: 0.25rem 0;
+		vertical-align: top;
+	}
+
+	table.clean tr { background: transparent !important; }
+
+/*	# Image
+	--------------------------------------------------------------*/
+	img.image-responsive { width: 100%; }
+
+	.image { margin: 0 0 1.25rem; }
+
+	.image.with-button {
+		display: inline-block;
+		position: relative;
+		vertical-align: baseline;
+	}
+
+	.image.with-button .button-wrapper {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 0;
+	}
+
+	.image.with-button .button-wrapper .button 		{ margin: 0 auto; }
+	.image.with-button .button-wrapper.button-left 	{ right: auto; }
+	.image.with-button .button-wrapper.button-right { left: auto; }
+
+/*	# Links
+	--------------------------------------------------------------*/
+/*  Inline link */
+	.link {
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+/*	# Transitions
+	--------------------------------------------------------------*/
+	.in,
+	.link,
+	.button.border {
+		-webkit-transition: all ease-in-out .3s;
+		-moz-transition: all ease-in-out .3s;
+		-o-transition: all ease-in-out .3s;
+		transition: all ease-in-out .3s;
+	}
+
+/*	==============================================================
+
+	# Custom Elements
+
+	==============================================================*/
+/*	## Big Branding (Login Page)
+	--------------------------------------------------------------*/
+	.big-branding { padding: 15% 0; }
+
+/*	## Breadcrumbs
+	--------------------------------------------------------------*/
+	.breadcrumbs {
+		border: none;
+		padding: 0;
+		background-color: transparent;
+		overflow: visible;
+	}
+
+	.breadcrumbs > * {
+		font-size: 2rem;
+		font-weight: 100;
+		line-height: 1;
+		text-transform: capitalize;
+	}
+
+	.breadcrumbs > *:hover a, .breadcrumbs > *:focus a {
+	  text-decoration: none; }
+
+	.breadcrumbs > *:before {
+		content: ">";
+		margin: 0 1.25rem;
+	}
+
+	@media only screen and (max-width: 64em) {
+		/* Smaller font size on mobile screen */
+		.breadcrumbs > * { font-size: 1.84rem; }
+		.breadcrumbs > *:before { margin: 0 0.75rem; }
+	}
+
+	@media only screen and (max-width: 40em) {
+		/* Smaller font size on tablet screen */
+		.breadcrumbs { margin: 0; }
+		.breadcrumbs > * { font-size: 1.12rem; }
+		.breadcrumbs > *:before { margin: 0 0.35rem; }
+	}
+
+/*	## Panels
+	--------------------------------------------------------------*/
+	.panel {
+		padding: 1em 1.25em;
+		padding: 0.675em 1em;
+		border: none;
+	}
+
+	.panel hr { margin: 12px 0 11px; }
+
+	.panel.list-menu {
+		margin-left: 0;
+		margin-right: 0;
+		padding: 0.675em 0;
+		overflow: hidden;        
+	}
+
+	.panel.list-menu li {
+		list-style-type: none;
+	}
+
+	.panel.list-menu li a {
+		display: block;
+		padding: 0.675em 1em;
+		line-height: 1em;
+	}
+
+	/*	Panel with icon */
+		.panel.list-menu.with-icon li a  { padding-left: 2.5em; }
+		.panel.list-menu.with-icon .icon { left: 1em; }
+
+/*	## List
+	--------------------------------------------------------------*/
+	.inline-list > li:first-child { margin-left: 0 !important; }
+
+	/* 	List with Divider (Use in Tags) */
+		.inline-list.with-divider > li  {
+			margin-left: 0.64rem;
+		}
+
+		.inline-list.with-divider > li + li a:before {
+			content: '|';
+			margin-right: 0.64rem;
+		}
+
+/*	## Icons
+	--------------------------------------------------------------*/
+	.icon {
+		width: 2em;
+		height: 2em;
+		display: inline-block;
+		line-height: inherit;
+		background-repeat: no-repeat;
+		background-position: center top;
+		background-size: 100% auto;
+		vertical-align: middle;
+	}
+
+	.small .icon,
+	.icon.small,
+	.small .icon.inline,
+	.icon.inline.small  {        
+		width: 16px;
+		height: 16px;		
+	}
+
+	.medium .icon,
+	.icon.medium,
+	.medium .icon.inline,
+	.icon.inline.medium {        
+		width: 24px;
+		height: 24px;
+	}
+
+	.large .icon,
+	.icon.large,
+	.large .icon.inline,
+	.icon.inline.large {        
+		width: 32px;
+		height: 32px;
+	}
+
+	/*	Icon Container (Text + Inline Icon) */
+		.icon-container { position: relative; }
+		.icon-container { position: relative; }
+
+		.icon-container.small .icon,
+		.icon-container .icon.small {
+			margin-top: -8px;     
+		}
+
+		.icon-container.medium .icon,
+		.icon-container .icon.medium {
+			margin-top: -12px;
+			background-size: 24px;
+		}
+
+		.icon-container.large .icon,
+		.icon-container .icon.large {
+			margin-top: -16px;
+			background-size: 32px;
+		}
+
+		.icon-container.icon-only {
+			display: inline-block;
+			padding: 16px;
+			line-height: 0;
+			vertical-align: middle;
+		}
+
+		.icon-container.icon-only .icon {
+			margin-top: 0;
+		}
+
+		.icon-container:hover .icon.ss {
+			background-position: 0 bottom;
+		}
+
+		.icon-container.icon-left .icon,
+		.icon-container.icon-right .icon  {			
+			position: absolute;       
+			top: 50%;
+		}
+
+		.icon-left.small 	{ padding-left: 1.5rem; padding-right: 0; }
+		.icon-right.small 	{ padding-right: 1.5rem; padding-left: 0; }
+
+		.icon-left.medium 	{ padding-left: 2.25rem; padding-right: 0; }
+		.icon-right.medium 	{ padding-right: 2.25rem; padding-left: 0; }
+
+		.icon-left.large 	{ padding-left: 2.75rem; padding-right: 0; }
+		.icon-right.large 	{ padding-right: 2.75rem; padding-left: 0; }
+
+		.icon-left .icon 	{ left: 0; right: auto; }  
+		.icon-right .icon 	{ right: 0; left: auto; }
+
+/*	Icon Link (use with <a>) */
+	.icon.link {
+  		padding: 16px;
+  		display: inline-block;
+  		vertical-align: middle;
+  		box-sizing: initial;
+  		background-position: center;
+  		background-size: 32px;
+	}
+	.icon.link:hover { opacity: 0.6; }
+
+	.icon.link.large	{ background-size: 32px; }
+	.icon.link.medium	{ background-size: 24px; }
+	.icon.link.small	{ background-size: 16px; }
+
+	.icon.link.large img	{ width: 32px; height: 32px; }
+	.icon.link.medium img	{ width: 24px; height: 24px; }
+	.icon.link.small img	{ width: 16px; height: 16px; }
+
+	.icon.link.ss		{ background-position: center; }
+	.icon.link.ss:hover { opacity: 1; }
+
+	.icon.link.ss.large	{ background-size: 32px; }
+	.icon.link.ss.medium{ background-size: 24px; }
+	.icon.link.ss.small	{ background-size: 16px; }
+
+	/* Ready to Use Icons */
+	.icon.back 			{ background-image: url(../../img/icon-back.png) !important; }
+	.icon.next 			{ background-image: url(../../img/icon-next-ss.png) !important; }
+	.icon.location 		{ background-image: url(../../img/icon-location-ss.png) !important; }
+	.icon.close 		{ background-image: url(../../img/icon-close-ss.png) !important; }
+	.icon.lock			{ background-image: url(../../img/icon-lock.png) !important; }
+	.icon.user			{ background-image: url(../../img/icon-user.png) !important; }
+	.icon.qrcode		{ background-image: url(../../img/icon-qrcode.png) !important; }
+	.icon.clock			{ background-image: url(../../img/icon-clock.png) !important; }
+	.icon.user-female	{ background-image: url(../../img/icon-user-female.png) !important; }
+	.icon.dancer 		{ background-image: url(../../img/icon-dancer.png) !important; }
+
+/*	## Block Grid 
+	--------------------------------------------------------------*/
+	.block-grid .grid-item { text-align: center; }
+
+	.block-grid .grid-name {
+		margin-top: 0;
+		line-height: 1.25;
+	}
+
+/*	## Product List
+	--------------------------------------------------------------*/
+	.product-price-and-ratings { line-height: 1em; }
+
+	.product-item .product-name { margin-bottom: 0; }
+	.product-item .product-details { margin-top: 0.5rem; }
+	.product-item .product-details .columns:first-child { padding-right: 0; }
+	.product-item .product-details .columns:last-child { padding-left: 0.5rem; }
+
+/*	## Star Rating
+	--------------------------------------------------------------*/
+	.star-rating-wrapper { display: inline-block; }
+
+	.star-rating-wrapper,
+	.star-rating-wrapper .star-rating {
+		width: 96px;
+		height: 16px;
+		background-size: 96px 16px;
+		background-position: left;
+	}
+
+	.star-rating-wrapper {
+		float: right;
+		position: relative;
+		background-image: url(../../img/star-rating-grey.png);
+	}
+
+	.star-rating-wrapper .star-rating {
+		position: absolute;
+		left: 0;
+		background-image: url(../../img/star-rating-orange.png);
+	}
+
+/*	## Teacher Profile
+	--------------------------------------------------------------*/
+	.teacher-profile * {
+		display: inline;
+		vertical-align: middle;
+	}
+	.teacher-profile .teacher-photo {
+		width: 2.4em;
+		height: 2.4em;
+	}
+
+/*	## Shopping Cart
+	--------------------------------------------------------------*/
+	.cart-item .description {
+		text-align: center;
+	}
+
+	@media only screen and (max-width: 64em) {
+		.cart-item > .columns {
+			margin-top: 0.25em;
+			margin-bottom: 0.25em;
+		}
+
+		.cart-item > .columns:first-child {
+			margin-top: 0.5em;
+		}
+
+		.cart-item .description {
+			text-align: left;
+		}
+
+		.cart-item .description:before {
+			display: inline-block;
+			width: 50%;
+		}
+
+		.cart-item .cart-quantity:before { content: 'Quantity'; }
+
+		.cart-item .cart-price:before { content: 'Price'; }
+	}
+
+	.coupon-code input {
+		  border-top-right-radius: 0;
+		  border-bottom-right-radius: 0;
+		  margin-bottom: 0;
+	}
+
+	.coupon-code .button.postfix {
+		  border-radius: 0;
+		  border-bottom-right-radius: 12px;
+		  border-top-right-radius: 12px;
+		  margin-bottom: 0;
+	}
+
+	.estimated-total > * { margin-bottom: 0 !important; }
+
+	.estimated-total .price {
+		width: 100% !important;
+		display: block;
+		text-align: center;
+	}
+
+	@media only screen and (max-width: 64em) {
+	/*	Add spacing between coupon code and estimated total */
+		.coupon-code {
+			margin-bottom: 1.25rem !important;
+		}
+	}
+
+/*	# Checkout
+	--------------------------------------------------------------*/
+	.payment-method { text-align: center; }
+
+	.payment-method img {
+		display: block;
+		margin: 0 auto;
+		width: 60%;
+	}

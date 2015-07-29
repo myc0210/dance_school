@@ -3,8 +3,8 @@
 var app =  
 angular.module('app')
   .config(
-    [        '$controllerProvider', '$compileProvider', '$filterProvider', '$httpProvider', '$locationProvider', '$provide',
-    function ($controllerProvider,   $compileProvider,   $filterProvider,   $httpProvider,   $locationProvider,   $provide) {
+    [        '$controllerProvider', '$compileProvider', '$filterProvider', '$httpProvider', '$locationProvider', '$provide', 'ngToastProvider',
+    function ($controllerProvider,   $compileProvider,   $filterProvider,   $httpProvider,   $locationProvider,   $provide,   ngToastProvider) {
 
         // lazy controller, directive and service
         app.controller   = $controllerProvider.register;
@@ -18,7 +18,7 @@ angular.module('app')
         $httpProvider.interceptors.push(function ($q) {
             return {
                 request: function (request) {
-                    var filter = ['template'],
+                    var filter = ['template', 'select2'],
                         untouch = false;
 
                     filter.forEach(function (elem, index, self) {
@@ -28,7 +28,7 @@ angular.module('app')
                     });
 
                     if (untouch == false) {
-                        request.url = 'http://localhost/school/dance/backend/web/' + request.url;
+                        request.url = 'http://192.168.1.6/school/dance/backend/web/' + request.url;
                     }
 
                     return request || $q.when(request);
@@ -40,6 +40,12 @@ angular.module('app')
         $locationProvider.html5Mode({
           enabled: true,
           requireBase: true
+        });
+
+        ngToastProvider.configure({
+            animation: 'slide',
+            dismissOnTimeout: false,
+            dismissOnClick: false
         });
     }
   ])

@@ -1,0 +1,11 @@
+.page-title, .page-buttons {
+    float: left;
+}
+
+.page-buttons {
+    margin-left: 20px;
+}
+
+.ui-select-container {
+    width: 100%;
+}

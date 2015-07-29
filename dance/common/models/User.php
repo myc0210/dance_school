@@ -121,6 +121,11 @@ class User extends ActiveRecord implements IdentityInterface
         return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
     }
 
+    public static function findByNRIC($nric)
+    {
+        return static::findOne(['identity_card_number' => $nric, 'status' => self::STATUS_ACTIVE]);
+    }
+
     /**
      * Finds user by password reset token
      *
@@ -248,5 +253,34 @@ class User extends ActiveRecord implements IdentityInterface
         } while (!$pass);
 
         return $uid;
+    }
+
+    public function terminate($userId)
+    {
+        $user = static::findOne($userId);
+        $user->status = self::STATUS_DELETED;
+
+        if ($user->save()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function updateNRIC($userId, $nric)
+    {
+        $user = static::findOne($userId);
+        $user->identity_card_number = $nric;
+
+        if ($user->save()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function getStudent()
+    {
+        return $this->hasOne(StudentProfile::className(), ['user_id' => 'id']);
     }
 }

@@ -35,4 +35,9 @@ class Product extends ActiveRecord
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
     }
+
+    public function getVariations()
+    {
+        return $this->hasMany(ProductVariation::className(), ['product_id' => 'id']);
+    }
 }

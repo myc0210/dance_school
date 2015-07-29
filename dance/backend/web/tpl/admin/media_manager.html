@@ -1,4 +1,8 @@
 <style>
+    img {
+        max-height: 200px;
+    }
+
     .vt-align-md {
         vertical-align: middle !important;
     }
@@ -97,16 +101,13 @@
 <div class="wrapper-md" ng-controller="MediaController">
     <h1 class="m-n font-thin h3">media manager</h1>
     <div class="wrapper-md">
-        <toaster-container-ext></toaster-container-ext>
         <tabset>
             <tab heading="All Images">
                 <div ng-include="'template/media_list.html'">
-
                 </div>
             </tab>
             <tab heading="Upload Images">
                 <div ng-include="'template/media_upload.html'">
-
                 </div>
             </tab>
         </tabset>

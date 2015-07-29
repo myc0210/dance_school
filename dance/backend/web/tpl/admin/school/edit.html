@@ -1,0 +1,28 @@
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form role="form" name="form" class="form-validation" novalidate>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>School Name*</label>
+                        <input type="text" class="form-control" ng-model="school.name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <div class="checkbox">
+                            <label class="i-checks">
+                                <input type="checkbox" ng-model="school.display" ng-true-value="1" ng-false-value="0"><i></i> Display on shopping cart?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1 col-md-offset-11">
+                        <button type="button" class="btn btn-primary" ng-click="schoolUpdate()" ng-disabled="form.$invalid">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

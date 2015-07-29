@@ -24,6 +24,9 @@ return [
             'class' => 'creocoder\flysystem\LocalFilesystem',
             'path' => '@webroot/angular/',
         ],
+        'mutex' => [
+            'class' => 'yii\mutex\MysqlMutex'
+        ]
     ],
     'aliases' => [
         '@upload' => 'images',

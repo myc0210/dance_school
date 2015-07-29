@@ -1,0 +1,94 @@
+<style>
+    .tree-node {
+        height: 55px;
+        padding: 10px;
+        background: #f8faff;
+        border: 1px solid #dae2ea;
+        color: #7c9eb2;
+    }
+
+    .angular-ui-tree-placeholder {
+        background: #f0f9ff;
+        border: 2px dashed #bed2db;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .angular-ui-tree-handle:hover {
+        color: #438eb9;
+        background: #f4f6f7;
+        border-color: #dce2e8;
+    }
+
+    /*Type CSS*/
+
+    .type-ctrl {
+        margin-bottom: 10px;
+    }
+
+    .btn.margin-left-5px {
+        margin-left: 5px;
+    }
+</style>
+<script type="text/ng-template" id="template/tree_nodes.html">
+    <div ui-tree-handle class="tree-node tree-node-content">
+        <button type="button" class="btn btn-success btn-default"
+        ng-if="type.subTypes && type.subTypes.length > 0"
+        data-nodrag
+        ng-click="toggle(this)"><span
+                class="glyphicon"
+                ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+        }"></span></button>
+        <button type="button" class="btn btn-danger btn-default"
+                ng-if="!(type.subTypes && type.subTypes.length > 0)"
+                data-nodrag
+                disabled>
+                <span class="glyphicon icon-ban"></span>
+        </button>
+        <input type="text" ng-model="type.name" ng-disabled="!type.edit"
+        placeholder="Type Name">
+        <button ng-if="type.edit" class="btn btn-sm btn-success margin-left-5px"
+        ng-click="editFinish(this)">OK
+        </button>
+        <!--<div class="btn-toolbar" role="toolbar">-->
+            <div class="btn-group pull-right" role="group">
+                <button type="button" class="btn btn-default btn-danger" data-nodrag ng-click="remove(this)"><span
+                        class="glyphicon glyphicon-remove"></span></button>
+            </div>
+            <!--<div class="btn-group pull-right" role="group">-->
+                <!--<button type="button" class="btn btn-default btn-primary" data-nodrag-->
+                <!--ng-click="newSubType(this)"><span-->
+                        <!--class="glyphicon glyphicon-plus"></span></button>-->
+            <!--</div>-->
+            <div class="btn-group pull-right" role="group">
+                <button type="button" class="btn btn-default btn-primary" data-nodrag
+                        ng-click="edit(this)"><span
+                        class="glyphicon icon-pencil"></span></button>
+            </div>
+        <!--</div>-->
+    </div>
+    <ol ui-tree-nodes="" ng-model="type.subTypes" ng-class="{hidden: collapsed}">
+        <li ng-repeat="type in type.subTypes" ui-tree-node
+        ng-include="'template/tree_nodes.html'">
+        </li>
+    </ol>
+</script>
+<div class="wrapper-md">
+    <!--<div class="panel panel-default">-->
+        <div ui-tree max-depth="1" empty-place-holder-enabled="false">
+            <div class="type-ctrl">
+                <button class="btn btn-success" ng-click="save()">Save</button>
+                <button class="btn btn-info" ng-click="newType()">New Main Type</button>
+                <!--<button class="btn btn-info" ng-click="this.expandAll()">Expand All</button>-->
+                <!--<button class="btn btn-info" ng-click="this.collapseAll()">Collapse All</button>-->
+            </div>
+            <ol ui-tree-nodes="" ng-model="types">
+                <li ng-repeat="type in types" ui-tree-node
+                ng-include="'template/tree_nodes.html'">
+                </li>
+            </ol>
+        </div>
+    <!--</div>-->

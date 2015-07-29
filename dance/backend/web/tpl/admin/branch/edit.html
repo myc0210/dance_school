@@ -1,0 +1,46 @@
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form role="form" name="form" class="form-validation" novalidate>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>School*</label>
+                        <div>
+                            <ui-select ng-model="branch.selected" theme="select2">
+                                <ui-select-match placeholder="Select school which the branch belongs...">{{$select.selected.school_name}}</ui-select-match>
+                                <ui-select-choices repeat="school in schools | filter: $select.search">
+                                    <span ng-bind-html="school.school_name | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>Branch Name*</label>
+                        <input type="text" class="form-control" ng-model="branch.name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Contact</label>
+                        <input type="text" class="form-control" ng-model="branch.phone">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>Address*</label>
+                        <input type="text" class="form-control" ng-model="branch.address" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Postcode</label>
+                        <input type="text" class="form-control" ng-model="branch.postcode">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1 col-md-offset-11">
+                        <button type="button" class="btn btn-primary" ng-click="branchUpdate()" ng-disabled="form.$invalid">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

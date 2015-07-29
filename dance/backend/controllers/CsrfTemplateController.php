@@ -48,7 +48,7 @@ class CsrftemplateController extends Controller
         if ($request instanceof Request && $request->enableCsrfValidation) {
             $element = '<myc-csrf-token parent-scope="csrf" value="' .
                 $request->getCsrfToken() .
-                '">';
+                '"></myc-csrf-token>';
         } else {
             return '';
         }

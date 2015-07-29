@@ -4,512 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1decb2a1c42ab3261f8efc729a56736c",
+    "hash": "14ccff57434bd3cd6fe158e4390dcd9f",
     "packages": [
-        {
-            "name": "bower-asset/angular",
-            "version": "v1.3.16",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular/bower-angular.git",
-                "reference": "4e922aec99eae4ce4403e598c33357eff93fce4f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular/bower-angular/zipball/4e922aec99eae4ce4403e598c33357eff93fce4f",
-                "reference": "4e922aec99eae4ce4403e598c33357eff93fce4f",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./angular.js",
-                "bower-asset-ignore": []
-            }
-        },
-        {
-            "name": "bower-asset/angular-animate",
-            "version": "v1.3.16",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular/bower-angular-animate.git",
-                "reference": "e4277efd5a6fb8fef7a96b4daab4e99051bdf3b2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular/bower-angular-animate/zipball/e4277efd5a6fb8fef7a96b4daab4e99051bdf3b2",
-                "reference": "e4277efd5a6fb8fef7a96b4daab4e99051bdf3b2",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": "1.3.16"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./angular-animate.js",
-                "bower-asset-ignore": []
-            }
-        },
-        {
-            "name": "bower-asset/angular-bootstrap",
-            "version": "0.13.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular-ui/bootstrap-bower.git",
-                "reference": "a75d899addcafb73344b724bec647620adeebc9a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular-ui/bootstrap-bower/zipball/a75d899addcafb73344b724bec647620adeebc9a",
-                "reference": "a75d899addcafb73344b724bec647620adeebc9a",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": ">=1.3.0"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "./ui-bootstrap-tpls.js"
-                ],
-                "bower-asset-ignore": []
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Native AngularJS (Angular) directives for Bootstrap.",
-            "keywords": [
-                "angular",
-                "angular-ui",
-                "bootstrap"
-            ]
-        },
-        {
-            "name": "bower-asset/angular-cookies",
-            "version": "v1.3.16",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular/bower-angular-cookies.git",
-                "reference": "acb2961fcd26deffa1251a068852914b984eb94c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular/bower-angular-cookies/zipball/acb2961fcd26deffa1251a068852914b984eb94c",
-                "reference": "acb2961fcd26deffa1251a068852914b984eb94c",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": "1.3.16"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./angular-cookies.js",
-                "bower-asset-ignore": []
-            }
-        },
-        {
-            "name": "bower-asset/angular-datatables",
-            "version": "dev-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/l-lin/angular-datatables.git",
-                "reference": "e41c076d9b501ffc44a507c3fec35abe67d676da"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/l-lin/angular-datatables/zipball/e41c076d9b501ffc44a507c3fec35abe67d676da",
-                "reference": "e41c076d9b501ffc44a507c3fec35abe67d676da",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": ">=1.3.0",
-                "bower-asset/datatables": ">=1.10.0",
-                "bower-asset/jquery": ">=1.11.0"
-            },
-            "require-dev": {
-                "bower-asset/angular-bootstrap": ">=0.10.0",
-                "bower-asset/angular-mocks": ">=1.3.0",
-                "bower-asset/bootstrap": ">=3.0.1"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "dist/angular-datatables.js",
-                    "dist/plugins/bootstrap/angular-datatables.bootstrap.js",
-                    "dist/plugins/bootstrap/datatables.bootstrap.css",
-                    "dist/plugins/colreorder/angular-datatables.colreorder.js",
-                    "dist/plugins/columnfilter/angular-datatables.columnfilter.js",
-                    "dist/plugins/colvis/angular-datatables.colvis.js",
-                    "dist/plugins/fixedcolumns/angular-datatables.fixedcolumns.js",
-                    "dist/plugins/fixedheader/angular-datatables.fixedheader.js",
-                    "dist/plugins/scroller/angular-datatables.scroller.js",
-                    "dist/plugins/tabletools/angular-datatables.tabletools.js"
-                ],
-                "bower-asset-ignore": [
-                    ".bowerrc",
-                    ".editorconfig",
-                    ".git*",
-                    ".jshintrc",
-                    ".esformatter",
-                    "Gruntfile.js",
-                    "test",
-                    "node_modules",
-                    "src",
-                    ".travis.yml",
-                    "vendor",
-                    "data.json",
-                    "data1.json",
-                    "demo",
-                    "favicon.png",
-                    "index.html",
-                    "README.md",
-                    "CONTRIBUTING.md",
-                    "server.js",
-                    "styles",
-                    "_config.yml",
-                    "grunt",
-                    "images",
-                    "package.json",
-                    "archives",
-                    "archives.json",
-                    "dtOptions.json",
-                    "dtColumns.json"
-                ],
-                "branch-alias": {
-                    "dev-dev": "0.5.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "time": "2015-06-27 13:28:30"
-        },
-        {
-            "name": "bower-asset/angular-perfect-scrollbar",
-            "version": "v0.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/itsdrewmiller/angular-perfect-scrollbar.git",
-                "reference": "65b3722a2d5a9b2230f07d6822d7c1a6181a15fe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/itsdrewmiller/angular-perfect-scrollbar/zipball/65b3722a2d5a9b2230f07d6822d7c1a6181a15fe",
-                "reference": "65b3722a2d5a9b2230f07d6822d7c1a6181a15fe",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": "*",
-                "bower-asset/perfect-scrollbar": "~0.5.1"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "src/angular-perfect-scrollbar.js",
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "test",
-                    "tests"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A directive to allow the use of perfect scrollbar in angular",
-            "keywords": [
-                "angular",
-                "perfect",
-                "scrollbar"
-            ]
-        },
-        {
-            "name": "bower-asset/angular-resource",
-            "version": "v1.3.16",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular/bower-angular-resource.git",
-                "reference": "f4d7c18f4afa41989207911e98621c717c0ff12a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular/bower-angular-resource/zipball/f4d7c18f4afa41989207911e98621c717c0ff12a",
-                "reference": "f4d7c18f4afa41989207911e98621c717c0ff12a",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": "1.3.16"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./angular-resource.js",
-                "bower-asset-ignore": []
-            }
-        },
-        {
-            "name": "bower-asset/angular-sanitize",
-            "version": "v1.3.16",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular/bower-angular-sanitize.git",
-                "reference": "bf573083ba3231f4de2f7afa0aed976630448235"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular/bower-angular-sanitize/zipball/bf573083ba3231f4de2f7afa0aed976630448235",
-                "reference": "bf573083ba3231f4de2f7afa0aed976630448235",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": "1.3.16"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./angular-sanitize.js",
-                "bower-asset-ignore": []
-            }
-        },
-        {
-            "name": "bower-asset/angular-touch",
-            "version": "v1.3.16",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular/bower-angular-touch.git",
-                "reference": "335cdb8cb8a76c15924d21899b33770cac8aa038"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular/bower-angular-touch/zipball/335cdb8cb8a76c15924d21899b33770cac8aa038",
-                "reference": "335cdb8cb8a76c15924d21899b33770cac8aa038",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": "1.3.16"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./angular-touch.js",
-                "bower-asset-ignore": []
-            }
-        },
-        {
-            "name": "bower-asset/angular-ui-router",
-            "version": "0.2.15",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular-ui/ui-router.git",
-                "reference": "805e69bae319e922e4d3265b7ef565058aaff850"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular-ui/ui-router/zipball/805e69bae319e922e4d3265b7ef565058aaff850",
-                "reference": "805e69bae319e922e4d3265b7ef565058aaff850",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": ">=1.0.8"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./release/angular-ui-router.js",
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "component.json",
-                    "package.json",
-                    "lib",
-                    "config",
-                    "sample",
-                    "test",
-                    "tests",
-                    "ngdoc_assets",
-                    "Gruntfile.js",
-                    "files.js"
-                ]
-            }
-        },
-        {
-            "name": "bower-asset/angular-ui-select",
-            "version": "v0.12.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular-ui/ui-select.git",
-                "reference": "2d1422d109dc1cd64213271e59506b14f74d356f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular-ui/ui-select/zipball/2d1422d109dc1cd64213271e59506b14f74d356f",
-                "reference": "2d1422d109dc1cd64213271e59506b14f74d356f",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": ">=1.2.18"
-            },
-            "require-dev": {
-                "bower-asset/angular-mocks": ">=1.2.18",
-                "bower-asset/angular-sanitize": ">=1.2.18",
-                "bower-asset/jquery": "~1.11"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "dist/select.js",
-                    "dist/select.css"
-                ],
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "src",
-                    "test",
-                    "gulpfile.js",
-                    "karma.conf.js",
-                    "examples"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "AngularJS ui-select"
-        },
-        {
-            "name": "bower-asset/angular-ui-tree",
-            "version": "v2.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular-ui-tree/angular-ui-tree.git",
-                "reference": "0762c17bfe52bc355342f4493887158b3bfb4ee3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular-ui-tree/angular-ui-tree/zipball/0762c17bfe52bc355342f4493887158b3bfb4ee3",
-                "reference": "0762c17bfe52bc355342f4493887158b3bfb4ee3",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": ">=1.2.0"
-            },
-            "require-dev": {
-                "bower-asset/angular-mocks": ">=1.2.0",
-                "bower-asset/angular-route": ">=1.2.0",
-                "bower-asset/angularfire": "~0.8.2",
-                "bower-asset/bootstrap-css": "~3.2.0",
-                "bower-asset/jasmine-jquery": "~1.7.0",
-                "bower-asset/jquery": "~2.1.1"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "dist/angular-ui-tree.js",
-                    "dist/angular-ui-tree.min.js",
-                    "dist/angular-ui-tree.min.css"
-                ],
-                "bower-asset-ignore": [
-                    "examples",
-                    "demo",
-                    "build",
-                    "guide",
-                    "node_modules",
-                    "source",
-                    "tasks",
-                    "tests",
-                    "gulpfile.js",
-                    "karma.conf.js",
-                    "package.json"
-                ]
-            },
-            "description": "Tree directive for AngularJS",
-            "keywords": [
-                "NestedSortable",
-                "angular",
-                "drag",
-                "drop",
-                "nested",
-                "node",
-                "sortable",
-                "tree"
-            ]
-        },
-        {
-            "name": "bower-asset/angular-ui-utils",
-            "version": "v0.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/angular-ui/ui-utils.git",
-                "reference": "125cb72d692f9f116454f338f6a5471f3088f9b9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angular-ui/ui-utils/zipball/125cb72d692f9f116454f338f6a5471f3088f9b9",
-                "reference": "125cb72d692f9f116454f338f6a5471f3088f9b9",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": ">=1.0.2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./ui-utils.js"
-            }
-        },
-        {
-            "name": "bower-asset/angularjs-toaster",
-            "version": "0.4.15",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jirikavi/AngularJS-Toaster.git",
-                "reference": "0df383ea17b7225ce86a6470e65e430961ca8ab3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jirikavi/AngularJS-Toaster/zipball/0df383ea17b7225ce86a6470e65e430961ca8ab3",
-                "reference": "0df383ea17b7225ce86a6470e65e430961ca8ab3",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": ">1.2.6",
-                "bower-asset/angular-animate": ">1.2.8"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "toaster.js",
-                    "toaster.css"
-                ],
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "components"
-                ]
-            }
-        },
-        {
-            "name": "bower-asset/animate.css",
-            "version": "3.2.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/daneden/animate.css.git",
-                "reference": "c60dc9028bccb062ab03f0ab7d5b6a32ec555996"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/daneden/animate.css/zipball/c60dc9028bccb062ab03f0ab7d5b6a32ec555996",
-                "reference": "c60dc9028bccb062ab03f0ab7d5b6a32ec555996",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./animate.css",
-                "bower-asset-ignore": [
-                    ".*",
-                    "src",
-                    "*.yml",
-                    "Gemfile",
-                    "Gemfile.lock",
-                    "*.md"
-                ]
-            }
-        },
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.3.5",
@@ -558,118 +54,6 @@
                 "responsive",
                 "web"
             ]
-        },
-        {
-            "name": "bower-asset/css-spinners",
-            "version": "v2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jlong/css-spinners.git",
-                "reference": "456932f5eb834e49819c6fdde296f48178ec2ad3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jlong/css-spinners/zipball/456932f5eb834e49819c6fdde296f48178ec2ad3",
-                "reference": "456932f5eb834e49819c6fdde296f48178ec2ad3",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "./css/spinners.css",
-                    "./css/spinner/*.css",
-                    "./sass/spinners.sass",
-                    "./sass/*.scss"
-                ],
-                "bower-asset-ignore": [
-                    "**/.*"
-                ]
-            }
-        },
-        {
-            "name": "bower-asset/datatables",
-            "version": "1.10.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DataTables/DataTables.git",
-                "reference": "fc64e71e1cee289da199982d3196b7e43afc0e52"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/DataTables/DataTables/zipball/fc64e71e1cee289da199982d3196b7e43afc0e52",
-                "reference": "fc64e71e1cee289da199982d3196b7e43afc0e52",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.7.0"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "media/js/jquery.dataTables.js",
-                    "media/css/jquery.dataTables.css",
-                    "media/images/sort_asc.png",
-                    "media/images/sort_asc_disabled.png",
-                    "media/images/sort_both.png",
-                    "media/images/sort_desc.png",
-                    "media/images/sort_desc_disabled.png"
-                ],
-                "bower-asset-ignore": [
-                    "/.*",
-                    "examples",
-                    "media/unit_testing",
-                    "composer.json",
-                    "dataTables.jquery.json",
-                    "package.json"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "keywords": [
-                "datatables",
-                "javascript",
-                "jquery",
-                "library",
-                "table"
-            ]
-        },
-        {
-            "name": "bower-asset/font-awesome",
-            "version": "v4.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "41b9ed01103e6820c3cb043ba7ddab30ecd3f4c0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/41b9ed01103e6820c3cb043ba7ddab30ecd3f4c0",
-                "reference": "41b9ed01103e6820c3cb043ba7ddab30ecd3f4c0",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "./css/font-awesome.css",
-                    "./fonts/*"
-                ],
-                "bower-asset-ignore": [
-                    "*/.*",
-                    "*.json",
-                    "src",
-                    "*.yml",
-                    "Gemfile",
-                    "Gemfile.lock",
-                    "*.md"
-                ]
-            },
-            "license": [
-                "OFL-1.1",
-                "MIT",
-                "CC-BY-3.0"
-            ],
-            "description": "Font Awesome"
         },
         {
             "name": "bower-asset/jquery",
@@ -768,165 +152,6 @@
             ]
         },
         {
-            "name": "bower-asset/ng-file-upload",
-            "version": "4.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/danialfarid/ng-file-upload-bower.git",
-                "reference": "fd776ae20de98b3343c4e9e23dcaab341fa2ad5a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/danialfarid/ng-file-upload-bower/zipball/fd776ae20de98b3343c4e9e23dcaab341fa2ad5a",
-                "reference": "fd776ae20de98b3343c4e9e23dcaab341fa2ad5a",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "ng-file-upload.js",
-                "bower-asset-ignore": []
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Lightweight Angular JS directive to upload files. Support drag&drop, progress and abort"
-        },
-        {
-            "name": "bower-asset/ngstorage",
-            "version": "0.3.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gsklee/ngStorage.git",
-                "reference": "e1b41eac494eb35f799ac02bd9d9180d37150402"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gsklee/ngStorage/zipball/e1b41eac494eb35f799ac02bd9d9180d37150402",
-                "reference": "e1b41eac494eb35f799ac02bd9d9180d37150402",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": ">=1.0.8"
-            },
-            "require-dev": {
-                "bower-asset/angular-mocks": ">=1.0.8",
-                "bower-asset/chai": ">=2.0.0,<3.0.0"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "./ngStorage.js",
-                "bower-asset-ignore": [
-                    "CHANGELOG.md",
-                    "components",
-                    "node_modules",
-                    "test",
-                    "package.json",
-                    "Gruntfile.js",
-                    ".bowerrc",
-                    ".gitignore",
-                    ".travis.yml"
-                ]
-            },
-            "keywords": [
-                "angular",
-                "cookie",
-                "local",
-                "localstorage",
-                "session",
-                "sessionstorage",
-                "storage"
-            ]
-        },
-        {
-            "name": "bower-asset/oclazyload",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ocombe/ocLazyLoad.git",
-                "reference": "c7b61e8cc95ea8c056b69f1c0dc4f0a02c0e9c90"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ocombe/ocLazyLoad/zipball/c7b61e8cc95ea8c056b69f1c0dc4f0a02c0e9c90",
-                "reference": "c7b61e8cc95ea8c056b69f1c0dc4f0a02c0e9c90",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/angular": ">=1.2.0,<=1.4.9999999"
-            },
-            "require-dev": {
-                "bower-asset/angular-mocks": "~1.3.2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "dist/ocLazyLoad.js",
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "src",
-                    "gulpfile.js",
-                    "package.json",
-                    "changelog.js",
-                    "validate-commit-msg.js",
-                    "tests",
-                    "karma.conf.js",
-                    "examples"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.1-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Load modules on demand (lazy load) with angularJS",
-            "keywords": [
-                "angular",
-                "angularJS",
-                "lazy load",
-                "lazy-load",
-                "lazyload",
-                "load on demand",
-                "module"
-            ],
-            "time": "2015-06-22 12:16:52"
-        },
-        {
-            "name": "bower-asset/perfect-scrollbar",
-            "version": "0.5.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/noraesae/perfect-scrollbar-bower.git",
-                "reference": "f6af3e071110bc09294fb950959051a079897582"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/noraesae/perfect-scrollbar-bower/zipball/f6af3e071110bc09294fb950959051a079897582",
-                "reference": "f6af3e071110bc09294fb950959051a079897582",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.10"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "src/perfect-scrollbar.css",
-                    "src/perfect-scrollbar.js"
-                ],
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Tiny but perfect jQuery scrollbar plugin"
-        },
-        {
             "name": "bower-asset/punycode",
             "version": "v1.3.2",
             "source": {
@@ -955,52 +180,8 @@
             }
         },
         {
-            "name": "bower-asset/simple-line-icons",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thesabbir/simple-line-icons.git",
-                "reference": "9b702ca0b5115eb250a45f0cb74541fd1bce1c03"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thesabbir/simple-line-icons/zipball/9b702ca0b5115eb250a45f0cb74541fd1bce1c03",
-                "reference": "9b702ca0b5115eb250a45f0cb74541fd1bce1c03",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "css/simple-line-icons.css",
-                    "scss/simple-line-icons.scss",
-                    "less/simple-line-icons.less",
-                    "fonts/Simple-Line-Icons.eot",
-                    "fonts/Simple-Line-Icons.svg",
-                    "fonts/Simple-Line-Icons.ttf",
-                    "fonts/Simple-Line-Icons.woff"
-                ],
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "test",
-                    "tests"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Simple Line Icons Bower Package",
-            "keywords": [
-                "fonts",
-                "icon",
-                "simple",
-                "simple-line"
-            ]
-        },
-        {
             "name": "bower-asset/yii2-pjax",
-            "version": "dev-master",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/jquery-pjax.git",
@@ -1025,28 +206,24 @@
                     "vendor/",
                     "script/",
                     "test/"
-                ],
-                "branch-alias": {
-                    "dev-master": "2.0.3-dev"
-                }
+                ]
             },
             "license": [
                 "MIT"
-            ],
-            "time": "2015-03-08 21:03:11"
+            ]
         },
         {
             "name": "cebe/markdown",
-            "version": "dev-master",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cebe/markdown.git",
-                "reference": "e14d3da8f84eefa3792fd22b5b5ecba9c98d2e18"
+                "reference": "54a2c49de31cc44e864ebf0500a35ef21d0010b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cebe/markdown/zipball/e14d3da8f84eefa3792fd22b5b5ecba9c98d2e18",
-                "reference": "e14d3da8f84eefa3792fd22b5b5ecba9c98d2e18",
+                "url": "https://api.github.com/repos/cebe/markdown/zipball/54a2c49de31cc44e864ebf0500a35ef21d0010b2",
+                "reference": "54a2c49de31cc44e864ebf0500a35ef21d0010b2",
                 "shasum": ""
             },
             "require": {
@@ -1093,7 +270,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2015-03-20 11:07:08"
+            "time": "2015-03-06 05:28:07"
         },
         {
             "name": "creocoder/yii2-flysystem",
@@ -1207,26 +384,25 @@
         },
         {
             "name": "league/flysystem",
-            "version": "dev-master",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "e9babd47e287992ece27cfc97b6e10bfac908943"
+                "reference": "3475ce0b1b5cab41f012905c4c58ad645088f7c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e9babd47e287992ece27cfc97b6e10bfac908943",
-                "reference": "e9babd47e287992ece27cfc97b6e10bfac908943",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3475ce0b1b5cab41f012905c4c58ad645088f7c9",
+                "reference": "3475ce0b1b5cab41f012905c4c58ad645088f7c9",
                 "shasum": ""
             },
             "require": {
-                "ext-mbstring": "*",
                 "php": ">=5.4.0"
             },
             "require-dev": {
                 "ext-fileinfo": "*",
                 "mockery/mockery": "~0.9",
-                "phpspec/phpspec": "~2.0",
+                "phpspec/phpspec": "^2.2",
                 "phpspec/prophecy-phpunit": "~1.0",
                 "phpunit/phpunit": "~4.1"
             },
@@ -1285,20 +461,68 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-06-25 18:33:43"
+            "time": "2015-07-21 19:35:53"
         },
         {
-            "name": "swiftmailer/swiftmailer",
-            "version": "5.x-dev",
+            "name": "paypal/rest-api-sdk-php",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "0a6e9031371dcb384d395b1fa7bd5139a7847a60"
+                "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+                "reference": "18e4eaaf319b48de2457abb7b2b1807cfe704c0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/0a6e9031371dcb384d395b1fa7bd5139a7847a60",
-                "reference": "0a6e9031371dcb384d395b1fa7bd5139a7847a60",
+                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/18e4eaaf319b48de2457abb7b2b1807cfe704c0a",
+                "reference": "18e4eaaf319b48de2457abb7b2b1807cfe704c0a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PayPal": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+                }
+            ],
+            "description": "PayPal's PHP SDK for REST APIs",
+            "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+            "keywords": [
+                "payments",
+                "paypal",
+                "rest",
+                "sdk"
+            ],
+            "time": "2015-06-25 17:12:03"
+        },
+        {
+            "name": "swiftmailer/swiftmailer",
+            "version": "v5.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swiftmailer/swiftmailer.git",
+                "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/0697e6aa65c83edf97bb0f23d8763f94e3f11421",
+                "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421",
                 "shasum": ""
             },
             "require": {
@@ -1338,20 +562,20 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2015-06-28 17:20:48"
+            "time": "2015-06-06 14:19:39"
         },
         {
             "name": "yiisoft/yii2",
-            "version": "dev-master",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "2254573ea1e09daf3a92c475d20f3a575ac4ad2c"
+                "reference": "ea8c13b9f5cd437bd7bf73cad8a3457a155f3727"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/2254573ea1e09daf3a92c475d20f3a575ac4ad2c",
-                "reference": "2254573ea1e09daf3a92c475d20f3a575ac4ad2c",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ea8c13b9f5cd437bd7bf73cad8a3457a155f3727",
+                "reference": "ea8c13b9f5cd437bd7bf73cad8a3457a155f3727",
                 "shasum": ""
             },
             "require": {
@@ -1426,25 +650,25 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2015-06-29 20:13:15"
+            "time": "2015-07-11 02:37:59"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
-            "version": "dev-master",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "56d47544eb98ebdb542422abc598ef8097b3e9c5"
+                "reference": "1b6b1e61cf91c3cdd517d6a7e71d30bb212e4af0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/56d47544eb98ebdb542422abc598ef8097b3e9c5",
-                "reference": "56d47544eb98ebdb542422abc598ef8097b3e9c5",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/1b6b1e61cf91c3cdd517d6a7e71d30bb212e4af0",
+                "reference": "1b6b1e61cf91c3cdd517d6a7e71d30bb212e4af0",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/bootstrap": "3.3.* | 3.2.* | 3.1.*",
-                "yiisoft/yii2": ">=2.0.x-dev"
+                "yiisoft/yii2": ">=2.0.4"
             },
             "type": "yii2-extension",
             "extra": {
@@ -1476,24 +700,24 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2015-06-23 17:21:52"
+            "time": "2015-05-10 22:08:17"
         },
         {
             "name": "yiisoft/yii2-composer",
-            "version": "dev-master",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "6b2a2b3bb83d4b3dd791f76e64c48973ce01bac6"
+                "reference": "ca8d23707ae47d20b0454e4b135c156f6da6d7be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/6b2a2b3bb83d4b3dd791f76e64c48973ce01bac6",
-                "reference": "6b2a2b3bb83d4b3dd791f76e64c48973ce01bac6",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/ca8d23707ae47d20b0454e4b135c156f6da6d7be",
+                "reference": "ca8d23707ae47d20b0454e4b135c156f6da6d7be",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0"
+                "composer-plugin-api": "1.0.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -1523,20 +747,20 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2015-06-11 19:55:58"
+            "time": "2015-03-01 06:22:44"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
-            "version": "dev-master",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-swiftmailer.git",
-                "reference": "fffcd50b35c53888b40bb7cf9d52f25e1a4e2f43"
+                "reference": "4ec435a89e30b203cea99770910fb5499cb3627a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/fffcd50b35c53888b40bb7cf9d52f25e1a4e2f43",
-                "reference": "fffcd50b35c53888b40bb7cf9d52f25e1a4e2f43",
+                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/4ec435a89e30b203cea99770910fb5499cb3627a",
+                "reference": "4ec435a89e30b203cea99770910fb5499cb3627a",
                 "shasum": ""
             },
             "require": {
@@ -1573,22 +797,22 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2015-06-18 08:31:25"
+            "time": "2015-05-10 22:12:32"
         }
     ],
     "packages-dev": [
         {
             "name": "bower-asset/typeahead.js",
-            "version": "v0.11.1",
+            "version": "v0.10.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twitter/typeahead.js.git",
-                "reference": "588440f66559714280628a4f9799f0c4eb880a4a"
+                "reference": "5f198b87d1af845da502ea9df93a5e84801ce742"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twitter/typeahead.js/zipball/588440f66559714280628a4f9799f0c4eb880a4a",
-                "reference": "588440f66559714280628a4f9799f0c4eb880a4a",
+                "url": "https://api.github.com/repos/twitter/typeahead.js/zipball/5f198b87d1af845da502ea9df93a5e84801ce742",
+                "reference": "5f198b87d1af845da502ea9df93a5e84801ce742",
                 "shasum": ""
             },
             "require": {
@@ -1606,16 +830,16 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "dev-master",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "6615c01b7b2a9c46f4cc426f860866a122eae0af"
+                "reference": "d0190b156bcca848d401fb80f31f504f37141c8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/6615c01b7b2a9c46f4cc426f860866a122eae0af",
-                "reference": "6615c01b7b2a9c46f4cc426f860866a122eae0af",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d0190b156bcca848d401fb80f31f504f37141c8d",
+                "reference": "d0190b156bcca848d401fb80f31f504f37141c8d",
                 "shasum": ""
             },
             "require": {
@@ -1631,7 +855,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6.x-dev"
+                    "dev-master": "1.5.x-dev"
                 }
             },
             "autoload": {
@@ -1654,11 +878,11 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2015-06-23 08:30:36"
+            "time": "2015-05-29 06:29:14"
         },
         {
             "name": "phpspec/php-diff",
-            "version": "dev-master",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/php-diff.git",
@@ -1692,16 +916,16 @@
         },
         {
             "name": "yiisoft/yii2-codeception",
-            "version": "dev-master",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-codeception.git",
-                "reference": "b3407b0c8614c1d614c5c58287816027ba98418b"
+                "reference": "de5007e7a99359597abbfe1c88dca3ce620061c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-codeception/zipball/b3407b0c8614c1d614c5c58287816027ba98418b",
-                "reference": "b3407b0c8614c1d614c5c58287816027ba98418b",
+                "url": "https://api.github.com/repos/yiisoft/yii2-codeception/zipball/de5007e7a99359597abbfe1c88dca3ce620061c5",
+                "reference": "de5007e7a99359597abbfe1c88dca3ce620061c5",
                 "shasum": ""
             },
             "require": {
@@ -1733,20 +957,20 @@
                 "codeception",
                 "yii2"
             ],
-            "time": "2015-05-10 22:28:02"
+            "time": "2015-05-10 22:08:30"
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "dev-master",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "1d2f8519c78c557b3d28f647a6bacfad1d6720f8"
+                "reference": "5c7081b2be71c61d3a50d978b31edc3e0b6f2f97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/1d2f8519c78c557b3d28f647a6bacfad1d6720f8",
-                "reference": "1d2f8519c78c557b3d28f647a6bacfad1d6720f8",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/5c7081b2be71c61d3a50d978b31edc3e0b6f2f97",
+                "reference": "5c7081b2be71c61d3a50d978b31edc3e0b6f2f97",
                 "shasum": ""
             },
             "require": {
@@ -1780,24 +1004,24 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2015-06-24 10:53:39"
+            "time": "2015-05-10 22:08:56"
         },
         {
             "name": "yiisoft/yii2-faker",
-            "version": "dev-master",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-faker.git",
-                "reference": "66432de272e5795435dc7da49381ea7bea2a2a67"
+                "reference": "b88ca69ee226a3610b2c26c026c3203d7ac50f6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-faker/zipball/66432de272e5795435dc7da49381ea7bea2a2a67",
-                "reference": "66432de272e5795435dc7da49381ea7bea2a2a67",
+                "url": "https://api.github.com/repos/yiisoft/yii2-faker/zipball/b88ca69ee226a3610b2c26c026c3203d7ac50f6c",
+                "reference": "b88ca69ee226a3610b2c26c026c3203d7ac50f6c",
                 "shasum": ""
             },
             "require": {
-                "fzaninotto/faker": "~1.4",
+                "fzaninotto/faker": "*",
                 "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
@@ -1827,24 +1051,24 @@
                 "faker",
                 "yii2"
             ],
-            "time": "2015-05-10 19:14:39"
+            "time": "2015-03-01 06:22:44"
         },
         {
             "name": "yiisoft/yii2-gii",
-            "version": "dev-master",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "bc7df9d8fa44b3308cc899ffc8e4204316304e41"
+                "reference": "e5a023e8779bd774194842ec1b8fb4917cf04007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/bc7df9d8fa44b3308cc899ffc8e4204316304e41",
-                "reference": "bc7df9d8fa44b3308cc899ffc8e4204316304e41",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/e5a023e8779bd774194842ec1b8fb4917cf04007",
+                "reference": "e5a023e8779bd774194842ec1b8fb4917cf04007",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/typeahead.js": "0.10.* | ~0.11.0",
+                "bower-asset/typeahead.js": "0.10.*",
                 "phpspec/php-diff": ">=1.0.2",
                 "yiisoft/yii2": ">=2.0.4",
                 "yiisoft/yii2-bootstrap": "~2.0"
@@ -1880,16 +1104,18 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2015-06-07 17:22:13"
+            "time": "2015-05-10 22:09:31"
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "platform-dev": []
 }

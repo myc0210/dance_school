@@ -2,15 +2,47 @@
 <ul class="nav">
     <li ui-sref-active="active">
         <a ui-sref="admin.dashboard">
-            <i class="glyphicon glyphicon-stats icon text-info-dker"></i>
+            <i class="glyphicon glyphicon-stats"></i>
             <span class="font-bold">Dashboard</span>
         </a>
     </li>
     <li ui-sref-active="active">
         <a ui-sref="admin.media-manager">
-            <i class="fa fa-picture-o icon text-info-dker"></i>
+            <i class="fa fa-picture-o"></i>
             <span class="font-bold">Media Manager</span>
         </a>
+    </li>
+    <li>
+        <a href class="auto">
+        <span class="pull-right text-muted">
+            <i class="fa fa-fw fa-angle-right text"></i>
+            <i class="fa fa-fw fa-angle-down text-active"></i>
+        </span>
+            <i class="fa fa-bank"></i>
+            <span class="font-bold">School</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="admin.school.list">
+                    <span>School List</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.school.create">
+                    <span>Create New School</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.branch.list">
+                    <span>Branch List</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.branch.create">
+                    <span>Create New Branch</span>
+                </a>
+            </li>
+        </ul>
     </li>
     <li>
         <a href class="auto">
@@ -28,7 +60,7 @@
                 </a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="admin.product.add">
+                <a ui-sref="admin.product.create">
                     <span>Create New Product</span>
                 </a>
             </li>
@@ -50,13 +82,40 @@
         </a>
         <ul class="nav nav-sub dk">
             <li ui-sref-active="active">
-                <a ui-sref="admin.course">
+                <a ui-sref="admin.course.list">
                     <span>Course List</span>
                 </a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="admin.course.add">
+                <a ui-sref="admin.course.create">
                     <span>Create New Course</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.course.type">
+                    <span>Course Type List</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+        <span class="pull-right text-muted">
+            <i class="fa fa-fw fa-angle-right text"></i>
+            <i class="fa fa-fw fa-angle-down text-active"></i>
+        </span>
+            <i class="fa fa-female"></i>
+            <span class="font-bold">Teacher</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="admin.teacher.list">
+                    <span>Teacher List</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.teacher.create">
+                    <span>Create New teacher</span>
                 </a>
             </li>
         </ul>
@@ -72,13 +131,185 @@
         </a>
         <ul class="nav nav-sub dk">
             <li ui-sref-active="active">
-                <a ui-sref="admin.student">
+                <a ui-sref="admin.student.list">
                     <span>Student List</span>
                 </a>
             </li>
             <li ui-sref-active="active">
                 <a ui-sref="admin.student.create">
                     <span>Create New Student</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+        <span class="pull-right text-muted">
+            <i class="fa fa-fw fa-angle-right text"></i>
+            <i class="fa fa-fw fa-angle-down text-active"></i>
+        </span>
+            <i class="fa fa-book"></i>
+            <span class="font-bold">Invoice</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.list">
+                    <span>Invoice List</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Create New Invoice</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+        <span class="pull-right text-muted">
+            <i class="fa fa-fw fa-angle-right text"></i>
+            <i class="fa fa-fw fa-angle-down text-active"></i>
+        </span>
+            <i class="fa fa-book"></i>
+            <span class="font-bold">Department</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.list">
+                    <span>Department List</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Create New Department</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+        <span class="pull-right text-muted">
+            <i class="fa fa-fw fa-angle-right text"></i>
+            <i class="fa fa-fw fa-angle-down text-active"></i>
+        </span>
+            <i class="fa fa-book"></i>
+            <span class="font-bold">Employee</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.list">
+                    <span>Employee List</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Create New Employee</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Employee Award</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+        <span class="pull-right text-muted">
+            <i class="fa fa-fw fa-angle-right text"></i>
+            <i class="fa fa-fw fa-angle-down text-active"></i>
+        </span>
+            <i class="fa fa-book"></i>
+            <span class="font-bold">Attendence</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.list">
+                    <span>Manage Attendence</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Attendence Report</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+        <span class="pull-right text-muted">
+            <i class="fa fa-fw fa-angle-right text"></i>
+            <i class="fa fa-fw fa-angle-down text-active"></i>
+        </span>
+            <i class="fa fa-book"></i>
+            <span class="font-bold">Application List</span>
+        </a>
+    </li>
+    <li>
+        <a href class="auto">
+        <span class="pull-right text-muted">
+            <i class="fa fa-fw fa-angle-right text"></i>
+            <i class="fa fa-fw fa-angle-down text-active"></i>
+        </span>
+            <i class="fa fa-book"></i>
+            <span class="font-bold">Payroll Management</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.list">
+                    <span>Manage Salary Details</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Employee Salary List</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Make Payment</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Generate Payslip</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+        <span class="pull-right text-muted">
+            <i class="fa fa-fw fa-angle-right text"></i>
+            <i class="fa fa-fw fa-angle-down text-active"></i>
+        </span>
+            <i class="fa fa-book"></i>
+            <span class="font-bold">HR Settings</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.list">
+                    <span>General Settings</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Set Working Days</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Holiday List</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Leave Category</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="admin.invoice.create">
+                    <span>Personal Event</span>
                 </a>
             </li>
         </ul>

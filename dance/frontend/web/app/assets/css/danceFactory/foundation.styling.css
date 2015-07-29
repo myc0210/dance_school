@@ -1,0 +1,276 @@
+/*  ============================================================
+	Dance Factory Custom Styling Stylesheet
+	Last Update: 4 June 2015
+	============================================================
+
+/*	# Main Structure
+	--------------------------------------------------------------*/
+	body { background-color: #000; }
+
+/*	# Typography
+	--------------------------------------------------------------*/
+	.text-white { color: #fff; }
+	.text-grey  { color: #888; }
+	.text-black  { color: #000; }
+	.text-color { color: #ffc926; }
+	.text-alert { color: #ff2626; }
+	.text-success { color: #74da0e; }
+	.text-secondary { color: #00b6c5; }
+
+	hr { border-color: #666; }
+
+	.user-profile .user-name,
+	.user-profile .user-name:focus {
+		color: #fff;
+	}
+
+/*	# Header +  Footer
+	--------------------------------------------------------------*/
+	.header,
+	.footer { 
+		background-color: #000;
+	}
+
+/*	# Forms
+	--------------------------------------------------------------*/
+	.input,
+	input[type="text"],
+	input[type="password"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="month"],
+	input[type="week"],
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	input[type="color"],
+	textarea,
+	select {
+		color: #fff;
+		border-color: #333;
+		background-color: #333;
+	}
+
+	input[type="text"]:focus,
+	input[type="password"]:focus,
+	input[type="date"]:focus,
+	input[type="datetime"]:focus,
+	input[type="datetime-local"]:focus,
+	input[type="month"]:focus,
+	input[type="week"]:focus,
+	input[type="email"]:focus,
+	input[type="number"]:focus,
+	input[type="search"]:focus,
+	input[type="tel"]:focus,
+	input[type="time"]:focus,
+	input[type="url"]:focus,
+	input[type="color"]:focus,
+	textarea:focus,
+	select:hover {
+		background-color: #444;
+		border: 1px solid #888 !important;
+	}
+
+/*	Large Form Fields */
+	input.large,
+	textarea.large,
+	select.large {
+		color: #333;
+		border: 2px solid #fff;
+		background-color: #fff;
+	}
+
+	input.large:focus,
+	textarea.large:focus,
+	select.large:hover {
+		background-color: #fff;
+		border: 2px solid #888 !important;
+	}
+
+/*	Label Indentation */
+	label { color: #888; }
+
+/*	# Buttons
+	--------------------------------------------------------------*/
+	button, .button {
+		color: #111;
+	}
+
+	button:hover, button:focus, .button:hover, .button:focus,
+	button.success, .button.success,
+	button.success:hover, button.success:focus, .button.success:hover, .button.success:focus,
+	button.alert, .button.alert,
+	button.alert:hover, button.alert:focus, .button.alert:hover, .button.alert:focus,
+	button.secondary, .button.secondary,
+	button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
+		color: #111;
+	}
+	
+/*	Primary + Border */
+	button.border,
+	.button.border {
+		color: #ffc926;
+		border: 2px solid #ffc926;
+		background-color: transparent;
+	}
+
+	button.border:hover,
+	button.border:focus,
+	.button.border:hover,
+	.button.border:focus {
+		color: #eab000;
+		border: 2px solid #eab000;
+		background-color: transparent;
+	}
+
+/*	Success + Border */
+	button.success.border,
+	.button.success.border {
+		color: #74da0e;
+		border-color: #74da0e;
+		background-color: transparent;
+	}
+
+	button.success.border:hover,
+	button.success.border:focus,
+	.button.success.border:hover,
+	.button.success.border:focus {
+		color: #5dae0b;
+		border-color: #5dae0b;
+		background-color: transparent;
+	}
+
+/*	Alert + Border */
+	button.alert.border,
+	.button.alert.border {
+		color: #ff2626;
+		border-color: #ff2626;
+		background-color: transparent;
+	}
+
+	button.alert.border:hover,
+	button.alert.border:focus,
+	.button.alert.border:hover,
+	.button.alert.border:focus {
+		color: #ea0000;
+		border-color: #ea0000;
+		background-color: transparent;
+	}
+
+/*	Secondary + Border */
+	button.secondary.border,
+	.button.secondary.border {
+		color: #00b6c5;
+		border-color: #00b6c5;
+		background-color: transparent;
+	}
+
+	button.secondary.border:hover,
+	button.secondary.border:focus,
+	.button.secondary.border:hover,
+	.button.secondary.border:focus {
+		color: #00929e;
+		border-color: #00929e;
+		background-color: transparent;
+	}
+
+/*	Disabled */
+	button.disabled,
+	button[disabled],
+	.button.disabled,
+	.button[disabled],
+	button.disabled:hover,
+	button.disabled:focus,
+	button[disabled]:hover,
+	button[disabled]:focus,
+	.button.disabled:hover,
+	.button.disabled:focus,
+	.button[disabled]:hover,
+	.button[disabled]:focus {
+		color: #111;
+		border-color: #111;
+		background-color: #222;
+		cursor: not-allowed;
+	}
+
+/*	Disabled + Border */
+	button.border.disabled,
+	button.border[disabled],
+	.button.border.disabled,
+	.button.border[disabled],
+	button.border.disabled:hover,
+	button.border.disabled:focus,
+	button.border[disabled]:hover,
+	button.border[disabled]:focus,
+	.button.border.disabled:hover,
+	.button.border.disabled:focus,
+	.button.border[disabled]:hover,
+	.button.border[disabled]:focus {
+		color: #ddd;
+		border-color: #ddd;
+		background-color: transparent;
+	}
+
+/*	Circle Button */
+	.button.circle { border: 4px #fff solid; }
+
+/*	# Table
+	--------------------------------------------------------------*/
+	table.clean tr th,
+	table.clean tr td {
+		color: #ddd;
+	}
+
+/*	# Links
+	--------------------------------------------------------------*/
+	a.text-white			{ color: #fff; }
+	a.text-grey				{ color: #888; }
+	a.text-black			{ color: #000; }
+	a.text-color			{ color: #ffc926; }
+	a.text-alert			{ color: #ff2626; }
+	a.text-success			{ color: #2db200; }
+	a.text-secondary		{ color: #00b6c5; }
+
+	a.text-white:hover 		{ color: rgba(255,255,255,0.8); }
+	a.text-grey:hover		{ color: #777; }
+	a.text-black:hover		{ color: rgba(0,0,0,.8); }
+	a.text-color:hover		{ color: #eab000; }
+	a.text-alert:hover		{ color: #ea0000; }
+	a.text-success:hover	{ color: #248e00; }
+	a.text-secondary:hover	{ color: #00929e; }
+
+/*	## Breadcrumbs
+	--------------------------------------------------------------*/
+	.breadcrumbs > * a { color: #bababa; }
+	.breadcrumbs > * a:hover { color: #ababab; }
+	.breadcrumbs > *.current a { color: #ffc926;}
+	.breadcrumbs > *.unavailable a { color: #ddd; }
+	.breadcrumbs > *:before { color: #bababa; }
+
+/*	## Panels
+	--------------------------------------------------------------*/
+	.panel {
+		color: #fff;
+		background-color: #333;
+	}
+
+	.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p, .panel li, .panel dl {
+		color: #fff;
+	}
+
+	.panel.list-menu li a:hover,
+	.panel.list-menu li a:focus {
+		color: #333;
+		background-color: #ffc926;
+	}
+	.panel.list-menu li a.active {
+		color: #333;
+		background-color: #ffc926;
+	}
+	.panel.list-menu li a.active .icon.ss {
+		background-position: 0 bottom;
+	}

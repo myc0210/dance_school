@@ -98,8 +98,13 @@ class CategoryProduct extends ActiveRecord {
             ->where(['status' => self::STATUS_ACTIVE])
             ->orderBy(['id' => SORT_DESC])
             ->all();
-        $maxId = $categoryList[0]->id;
-        $categoryHierarchyList = $this->setHierarchy($categoryList);
+        if ($categoryList) {
+            $maxId = $categoryList[0]->id;
+            $categoryHierarchyList = $this->setHierarchy($categoryList);
+        } else {
+            $maxId = 0;
+            $categoryHierarchyList = [];
+        }
 
         return ['categories' => $categoryHierarchyList, 'maxId' => $maxId];
     }

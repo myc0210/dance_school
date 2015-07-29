@@ -1,0 +1,35 @@
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form role="form" name="form" class="form-validation" novalidate>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>Fist Name*</label>
+                        <input type="text" class="form-control" ng-model="teacher.firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Last Name*</label>
+                        <input type="text" class="form-control" ng-model="teacher.lastName" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>NRIC/Passport No*</label>
+                        <input type="text" class="form-control" ng-model="teacher.identityNo" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label>Description*</label>
+                        <textarea class="form-control" ng-model="teacher.description" required></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1 col-md-offset-11">
+                        <button type="button" class="btn btn-primary" ng-click="teacherUpdate()" ng-disabled="form.$invalid">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

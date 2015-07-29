@@ -1,13 +1,14 @@
 <?php
     namespace backend\controllers;
 
-    use common\models\StudentCreateForm;
-    use common\models\User;
+    use common\models\StudentProfile;
     use League\Flysystem\Exception;
     use Yii;
     use yii\filters\AccessControl;
     use yii\web\Controller;
-    use common\models\StudentCreate;
+    use common\models\User;
+    use common\models\StudentCreateForm;
+    use common\models\StudentListTable;
     use yii\filters\VerbFilter;
     use yii\web\Response;
     use yii\web\HttpException;
@@ -125,5 +126,54 @@
                 $response->statusCode = 403;
 
             }
+        }
+
+        public function actionStudentList()
+        {
+            $response = Yii::$app->getResponse();
+            $response->format = Response::FORMAT_JSON;
+            $studentListModel = new StudentListTable();
+
+            $response->statusCode = 200;
+            $response->data = $studentListModel->studentList();
+        }
+
+        public function actionStudentTerminate()
+        {
+            $app = Yii::$app;
+            $response = $app->getResponse();
+            $response->format = Response::FORMAT_JSON;
+            $request = $app->getRequest();
+            $studentId = $request->post('studentId');
+            $connection = $app->getDb();
+            $transaction = $connection->beginTransaction();
+
+
+            try {
+                $studentProfile = new StudentProfile();
+
+                if ($studentTerminated = $studentProfile->terminate($studentId)) {
+                    $user = new User();
+                    $userId = $studentTerminated->user_id;
+                    if ($user->terminate($userId)) {
+                        $response->statusCode = 200;
+                        $response->data = [
+                            'status' => 'success'
+                        ];
+                    } else {
+                        throw new Exception('User terminate fail.');
+                    }
+                } else {
+                    throw new Exception('Student profile terminate fail.');
+                }
+
+                $transaction->commit();
+            } catch (Exception $e) {
+
+                $transaction->rollBack();
+                $response->statusCode = 403;
+
+            }
+
         }
     }

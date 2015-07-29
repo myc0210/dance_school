@@ -896,7 +896,7 @@ body {
   padding: 0 20px;
   font-size: 20px;
   font-weight: 700;
-  line-height: 50px;
+  line-height: 51px;
   text-align: center;
 }
 
@@ -915,7 +915,9 @@ body {
   .app-aside {
     width: 200px;
   }
-  .navbar-collapse,
+  .navbar-collapse {
+    margin-left: 294px;
+  }
   .app-content,
   .app-footer {
     margin-left: 200px;

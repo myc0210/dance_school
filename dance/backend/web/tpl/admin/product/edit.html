@@ -1,0 +1,135 @@
+<style>
+    .media-grid .thumbnail-delete {
+        position: absolute;
+        top: -5px;
+        right: 5px;
+        background-color: red;
+        color: white;
+        padding: 0 3px;
+        cursor: pointer;
+    }
+
+    .media-grid .thumbnail-default {
+        position: absolute;
+        top: -12px;
+        padding: 0 3px;
+        background-color: #1797be;
+        color: white;
+    }
+</style>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form role="form" name="form">
+                <div class="form-group">
+                    <label>Product Name*</label>
+                    <input type="text" class="form-control" ng-model="product.name" required>
+                </div>
+                <div class="form-group">
+                    <label>Product Category*</label>
+                    <!--<button class="btn btn-primary" type="button" ng-click="addCategories()">-->
+                        <!--<i class="glyphicon glyphicon-plus"></i>-->
+                        <!--Add Categories</button>-->
+                    <select class="form-control" ng-model="product.category"
+                            ng-change="updateSubcategories()"
+                            ng-options="category.name for category in categories track by category.id" required>
+                        <option value="">Select a category</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Product Subcategory</label>
+                    <select class="form-control" ng-model="product.subcategory"
+                            ng-options="subcategory.name for subcategory in subcategories track by subcategory.id">
+                        <option value="">N/A</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Product Gallery*</label>
+                    <button class="btn btn-primary" type="button" ng-click="addImages()">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        Add Images
+                    </button>
+                    <input type="hidden" ng-model="product.attachedImages" required>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 media-grid"
+                         ng-repeat="image in product.attachedImages track by $index">
+                        <label class="thumbnail-default" ng-if="image.default">
+                            Default
+                        </label>
+                        <label class="thumbnail-delete" ng-click="thumbnailDelete($index)">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </label>
+                        <a class="thumbnail" href="#" ng-click="thumbnailSetDefault($index)">
+                            <label class="name">
+                                <span>{{image.name}}</span>
+                            </label>
+                            <img class="img-responsive" src="{{image.path}}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <label>Product Variation*</label>
+                <button type="button" class="btn btn-primary"
+                        ng-click="newVariationProduct()"><i class="glyphicon glyphicon-plus"></i>
+                    Add new variation product</button><span>Leave field blank if not applicable.</span>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Product Code</th>
+                        <th>Suitable Course Level</th>
+                        <th>Color</th>
+                        <th>Size</th>
+                        <th>Qty</th>
+                        <th>Cost</th>
+                        <th>Price*</th>
+                        <th>action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="variationProduct in product.variationProducts track by $index">
+                        <td>
+                            <input ng-model="variationProduct.code" class="pull-left"
+                                   size="20">
+                        </td>
+                        <td>
+                            <input ng-model="variationProduct.level" class="pull-left"
+                                   size="15">
+                        </td>
+                        <td>
+                            <input ng-model="variationProduct.color" class="pull-left"
+                                   size="10">
+                        </td>
+                        <td>
+                            <input ng-model="variationProduct.size" class="pull-left" size="5">
+                        </td>
+                        <td>
+                            <input ng-model="variationProduct.quantity" class="pull-left" size="5">
+                        </td>
+                        <td>
+                            <input ng-model="variationProduct.cost" class="pull-left" size="6">
+                        </td>
+                        <td>
+                            <input ng-model="variationProduct.price" class="pull-left" size="6" required>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm"
+                                    tooltip="Duplicate" ng-click="duplicate(variationProduct)"><i
+                                    class="glyphicon glyphicon-duplicate"></i></button>
+                            <button type="button" class="btn btn-primary btn-sm"
+                                    tooltip="Delete" ng-if="$index != 0" ng-click="deleteVariationProduct($index)"><i
+                                    class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    <label>Product Description</label>
+                    <textarea class="form-control" ng-model="product.description"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-sm btn-primary" ng-click="saveProduct()" ng-disabled="form.$invalid">Submit
+                </button>
+            </form>
+        </div>
+    </div>

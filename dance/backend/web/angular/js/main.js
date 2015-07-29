@@ -33,8 +33,8 @@ angular.module('app')
           headerFixed: true,
           asideFixed: false,
           asideFolded: false,
-          asideDock: false,
-          container: true
+          asideDock: true,
+          container: false
         }
       }
 
