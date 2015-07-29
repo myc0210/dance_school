@@ -22,8 +22,8 @@
         public function rules()
         {
             return [
-                [['school_id', 'invoice_no', 'grand_total', 'total', 'payment_type', 'status'], 'required'],
-                [['school_id', 'payment_type', 'status'], 'integer'],
+                [['user_id', 'school_id', 'invoice_no', 'grand_total', 'total', 'payment_type', 'status'], 'required'],
+                [['user_id', 'school_id', 'payment_type', 'status'], 'integer'],
                 [['grand_total', 'total'], 'number']
             ];
         }

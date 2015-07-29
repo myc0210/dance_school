@@ -87,7 +87,7 @@
             return null;
         }
 
-        public static function checkout($paymentObj, $clientId, $clientCredit, $environment = 'sandbox')
+        public static function checkout($schoolName, $paymentObj, $clientId, $clientCredit, $environment = 'sandbox')
         {
             $apiContext = static::getApiContext($clientId, $clientCredit, $environment);
 
@@ -138,10 +138,11 @@
                 ->setInvoiceNumber($paymentObj['invoice_no']);
 
             $app = Yii::$app;
+            $returnUrlParams = $app->params['paypalReturn'];
             $redirectUrls = new RedirectUrls();
             $redirectUrls
-                ->setReturnUrl($app->params['paypalReturnSuccess'])
-                ->setCancelUrl($app->params['paypalReturnCancel']);
+                ->setReturnUrl($returnUrlParams[$schoolName]['paypalReturnSuccess'])
+                ->setCancelUrl($returnUrlParams[$schoolName]['paypalReturnCancel']);
 
             $payment = new Payment();
             $payment
@@ -173,17 +174,7 @@
             return $approvalUrl;
         }
 
-        public static function executePayment($token, $paymentId, $payerId) {
-            $cache = Yii::$app->cache;
-
-            if($compositedCredit = $cache->get($token)) {
-                $compositedCredit = explode(',', $compositedCredit);
-                $clientId = $compositedCredit[0];
-                $clientSecret = $compositedCredit[1];
-            } else {
-                throw new \Exception('Token is invalid.');
-            }
-
+        public static function executePayment($token, $paymentId, $payerId, $clientId, $clientSecret) {
             $apiContext = static::getApiContext($clientId, $clientSecret);
 
             $payment = Payment::get($paymentId, $apiContext);;
