@@ -32,4 +32,11 @@
         {
             return $this->hasMany(InvoiceItem::className(), ['invoice_id' => 'id']);
         }
+
+        public function getFrontendInvoiceItems()
+        {
+            return $this->hasMany(InvoiceItem::className(), ['invoice_id' => 'id'])
+                ->select(['description', 'invoice_id'])
+                ->orderBy(['course_variation_id' => SORT_DESC]);
+        }
     }
