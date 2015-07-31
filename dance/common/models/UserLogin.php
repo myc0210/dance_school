@@ -45,6 +45,23 @@ class UserLogin extends Model
         return $this->_user;
     }
 
+    public function getStudentByUsername()
+    {
+        if ($this->_user === false) {
+            $this->_user = User::findOne(['username' => $this->username]);
+            if (!empty($this->_user)) {
+                $userRole = $this->getRole();
+                if ($userRole == 'relative') {
+                    $relative = RelativeProfile::find()->with('student')->where(['user_id' => $this->_user->id, 'status' => 10])->one();
+                    return $relative->student;
+                } else if ($userRole == 'student') {
+                    return $this->_user;
+                }
+            }
+        }
+        return $this->_user;
+    }
+
     /**
      * Validates the password.
      * This method serves as the inline validation for password.

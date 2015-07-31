@@ -11,12 +11,12 @@
     {
 
         public $name;
-        public $display;
+        public $email;
 
         public function rules()
         {
             return [
-                [['name', 'display'], 'required'],
+                [['name', 'email'], 'required'],
             ];
         }
 
@@ -24,7 +24,7 @@
         {
             $school = new School();
             $school->school_name = $this->name;
-            $school->shopping_cart_display = $this->display;
+            $school->school_email = $this->email;
 
             if ($school->save()) {
                 return true;

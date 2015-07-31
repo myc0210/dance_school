@@ -136,7 +136,7 @@
             if ($school = $schoolModel->schoolGet($schoolId)) {
                 $responseData['id'] = $school->id;
                 $responseData['name'] = $school->school_name;
-                $responseData['display'] = $school->shopping_cart_display;
+                $responseData['email'] = $school->school_email;
                 $response->statusCode = 200;
                 $response->data = $responseData;
             } else {

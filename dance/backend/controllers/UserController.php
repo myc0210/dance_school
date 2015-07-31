@@ -4,6 +4,7 @@ namespace backend\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use common\models\User;
 use common\models\StudentProfile;
 use common\models\UserLogin;
 use yii\filters\VerbFilter;
@@ -85,7 +86,7 @@ class UserController extends Controller
                 ];
                 return;
             }
-        } else if ( isset($user['name'])) {
+        } else if ( isset($user['username'])) {
             $user = $userModel->getStudentByUsername();
             if (empty($user)) {
                 $response->data = [
@@ -108,32 +109,26 @@ class UserController extends Controller
         ];
     }
 
-    public function actionLogin()
+    public function actionSetUsernamePassword()
     {
-        $response = Yii::$app->response;
+        $app = Yii::$app;
+        $response = $app->getResponse();
         $response->format = Response::FORMAT_JSON;
-        $authManager = Yii::$app->authManager;
-
-        $model = new UserLogin();
-        if ($model->load(Yii::$app->request->post(), '') && $model->login()) {
-            $response->statusCode = 200;
-            $response->data = [
-                'status' => 'success',
-                'accessToken' => $model->getAccessToken(),
-                'user' => [
-                    'username' => $model->getUser()->username,
-                    'role' => $model->getRole()
-                ]
-            ];
+        $request = $app->getRequest();
+        $userPost = $request->post('user');
+        $userId = $userPost['id'];
+        $existUser = User::findOne(['username' => $userPost['name']]);
+        if (empty($existUser)) {
+            $user = User::findOne($userId);
+            $user->setUsername($userPost['name']);
+            $user->setPassword($userPost['password']);
+            if (!$user->save()) {
+                $response->statusCode = 500;
+            } else {
+                $response->data = ['status' => 'success'];
+            }
         } else {
-            $response->statusCode = 403;
+            $response->data = ['status' => 'error', 'Username exists.'];
         }
-    }
-
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
     }
 }

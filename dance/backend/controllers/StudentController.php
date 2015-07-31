@@ -89,6 +89,7 @@
                 $user->uid = $user->generateUid();
                 $user->identity_card_number = $postData['identityNo'];
                 $user->email = $postData['email'];
+                $user->generateEmailToken();
 
                 if ($user->save()) {
 
@@ -97,7 +98,9 @@
                     $postData['userId'] = $userId;
 
                     if ($studentProfile->load($postData, '') && $studentProfile->create()) {
-
+                        if (!$studentProfile->sendEmail()) {
+                            throw new Exception('Email send failed.');
+                        }
                         $roleOwner = $authManager->getRole('student');
                         $authManager->assign($roleOwner, $userId);
 
@@ -108,13 +111,13 @@
 
                     } else {
 
-                        throw new Exception('Student profile create fail');
+                        throw new Exception('Student profile create failed.');
 
                     }
 
                 } else {
 
-                    throw new Exception('User create fail.');
+                    throw new Exception('User create failed.');
 
                 }
 
@@ -174,6 +177,62 @@
                 $response->statusCode = 403;
 
             }
+        }
+
+        public function actionVerifyEmailToken()
+        {
+            $app = Yii::$app;
+            $response = $app->getResponse();
+            $response->format = Response::FORMAT_JSON;
+            $request = $app->getRequest();
+            $token = $request->post('token');
+            $matchedUser = User::findOne(['email_token' => $token]);
+            if (!empty($matchedUser)) {
+                $response->data = ['userId' => $matchedUser->id];
+            } else {
+                $response->statusCode = 401;
+            }
+        }
+
+        public function actionGetProfile()
+        {
+            $app = Yii::$app;
+            $response = $app->getResponse();
+            $response->format = Response::FORMAT_JSON;
+            $request = $app->getRequest();
+            $userId = $request->post('userId');
+            $matchedUser = User::findOne($userId);
+            $student = $matchedUser->student;
+            $extra = [
+                'nric' => $matchedUser->identity_card_number,
+                'email' => $matchedUser->email
+            ];
+            $father = $student->father;
+            $mother = $student->mother;
+            $contact1 = $student->contact1;
+            $contact2 = $student->contact2;
+
+            if (!empty($student)) {
+                $response->data = [
+                    'student' => $student,
+                    'extra' => $extra,
+                    'father' => $father,
+                    'mother' => $mother,
+                    'contact1' => $contact1,
+                    'contact2' => $contact2
+                ];
+            } else {
+                $response->statusCode = 500;
+            }
+        }
+
+        public function actionUpdateProfile()
+        {
+            $app = Yii::$app;
+            $response = $app->getResponse();
+            $response->format = Response::FORMAT_JSON;
+            $request = $app->getRequest();
+            $profile = $request->post('profile');
 
         }
     }

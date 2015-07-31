@@ -27,6 +27,7 @@ use yii\web\IdentityInterface;
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
+    const STATUS_PENDING = 1;
     const STATUS_ACTIVE = 10;
 
     /**
@@ -53,8 +54,8 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'default', 'value' => self::STATUS_PENDING],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_PENDING]],
         ];
     }
 
@@ -224,6 +225,11 @@ class User extends ActiveRecord implements IdentityInterface
         $this->auth_key = Yii::$app->security->generateRandomString();
     }
 
+    public function generateEmailToken()
+    {
+        $this->email_token = Yii::$app->security->generateRandomString() . '_' . time();
+    }
+
     /**
      * Generates new password reset token
      */
@@ -282,5 +288,15 @@ class User extends ActiveRecord implements IdentityInterface
     public function getStudent()
     {
         return $this->hasOne(StudentProfile::className(), ['user_id' => 'id']);
+    }
+
+    public function getRelative()
+    {
+        return $this->hasOne(RelativeProfile::className(), ['user_id' => 'id']);
+    }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
     }
 }

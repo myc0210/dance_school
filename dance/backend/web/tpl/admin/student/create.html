@@ -1,7 +1,31 @@
 <div class="wrapper-md">
     <div class="panel panel-default">
         <div class="panel-body">
-            <form role="form">
+            <form role="form" name="form">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>School*</label>
+                        <div>
+                            <ui-select ng-model="school.selected" theme="select2" ng-change="checkLock()" required>
+                                <ui-select-match placeholder="Select school which the branch belongs...">{{$select.selected.school_name}}</ui-select-match>
+                                <ui-select-choices repeat="school in schools | filter: $select.search">
+                                    <span ng-bind-html="school.school_name | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Branch*</label>
+                        <div>
+                            <ui-select ng-model="branch.selected" theme="select2" ng-disabled="branchLock" required>
+                                <ui-select-match placeholder="Select branch...">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="branch in branches | filter: $select.search">
+                                    <span ng-bind-html="branch.name | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label>Fist Name*</label>
@@ -34,7 +58,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-md-1 col-md-offset-11">
-                        <button type="button" class="btn btn-primary" ng-click="studentCreate()">Save</button>
+                        <button type="button" class="btn btn-primary" ng-click="studentCreate()" ng-disabled="form.$invalid">Save</button>
                     </div>
                 </div>
             </form>

@@ -266,6 +266,12 @@ angular.module('app')
                   templateUrl: 'csrftemplate/?url=admin/student/create.html',
                   controller: 'AdminStudentCreateController',
                   resolve: {
+                      promiseSchools: ['AdminSchoolService', function(AdminSchoolService) {
+                          return AdminSchoolService.schoolGetAll();
+                      }],
+                      promiseBranches: ['AdminBranchService', function(AdminBranchService) {
+                          return AdminBranchService.branchList();
+                      }]
                   }
               })
               .state('admin.student.trail', {

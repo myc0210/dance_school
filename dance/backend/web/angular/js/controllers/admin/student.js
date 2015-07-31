@@ -9,15 +9,59 @@ app.controller('AdminStudentGeneralController',
     }]
 )
 .controller('AdminStudentCreateController',
-    [        '$scope', '$http', 'AdminStudentService',
-    function ($scope,   $http,   AdminStudentService) {
+    [        '$scope', '$http', 'promiseSchools', 'promiseBranches', 'ngToast','AdminStudentService',
+    function ($scope,   $http,  promiseSchools, promiseBranches, ngToast, AdminStudentService) {
         $scope.page.title = 'Create New Student';
         $scope.csrf = {value: ''};
         $scope.student = {};
+        $scope.branchLock = true;
+        $scope.school = {};
+        $scope.branch = {};
+        $scope.schools = promiseSchools;
+        $scope.branches = [];
 
         $scope.studentCreate = function() {
-            AdminStudentService.studentCreate(this.student);
-        }
+            this.student.schoolId = $scope.school.selected.id;
+            this.student.branchId = $scope.branch.selected.id;
+            var waitToast = ngToast.create({
+                className: 'info',
+                content: '<div class="timer-loader"></div>Processing...'
+            });
+            var promise = AdminStudentService.studentCreate(this.student);
+            promise.then(
+                function (data) {
+                    ngToast.dismiss(waitToast);
+                    ngToast.create({
+                        className: 'success',
+                        dismissOnTimeout: true,
+                        content: 'Success!'
+                    });
+                    $scope.student = {};
+                    $scope.branch = {};
+                    $scope.school = {};
+                    $scope.branches.length = 0;
+                },
+                function (reason) {
+                    ngToast.dismiss(waitToast);
+                    ngToast.create({
+                        className: 'danger',
+                        dismissOnTimeout: true,
+                        content: 'System error! Please try again!'
+                    });
+                }
+            );
+
+        };
+
+        $scope.checkLock = function() {
+            $scope.branches.length = 0;
+            promiseBranches.forEach(function(val, index, self) {
+                if (val.school_id == $scope.school.selected.id) {
+                    $scope.branches.push(val);
+                }
+            });
+            $scope.branchLock = false;
+        };
     }]
 )
 .controller('AdminStudentListController',

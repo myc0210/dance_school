@@ -24,7 +24,7 @@ app.controller('AdminSchoolGeneralController',
             $scope.csrf = {value: ''};
             $scope.school = {
                 name: '',
-                display: 0
+                email: ''
             };
 
             $scope.schoolCreate = function() {
@@ -84,7 +84,7 @@ app.controller('AdminSchoolGeneralController',
             $scope.dtColumns =  [
                 DTColumnBuilder.newColumn('id').withTitle('ID'),
                 DTColumnBuilder.newColumn('school_name').withTitle('School Name'),
-                DTColumnBuilder.newColumn('shopping_cart_display').withTitle('Display on shopping cart'),
+                DTColumnBuilder.newColumn('school_email').withTitle('School Email'),
                 DTColumnBuilder.newColumn(null).withTitle('Actions').notSortable()
                     .renderWith(actionsHtml)
             ];

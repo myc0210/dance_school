@@ -57,7 +57,7 @@
         {
             $school = static::findOne($schoolId);
             $school->school_name = $schoolInfo['name'];
-            $school->shopping_cart_display = $schoolInfo['display'];
+            $school->school_email = $schoolInfo['email'];
 
             if ($school->save()) {
                 return true;
